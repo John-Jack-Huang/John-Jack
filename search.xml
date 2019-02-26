@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>github+hexo搭建一个Blog</title>
+      <link href="/2019/02/26/blog/blog-build/"/>
+      <url>/2019/02/26/blog/blog-build/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>今天突发奇想，自己搭建一个blog就可以不用github那个markdown来撰写我的博文了，然后去百度搜了一下，网友推荐了使用Hexo（当然还有其他）搭建一个自己的blog。</p></blockquote><h5 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h5><ul><li>一个GitHub帐号</li><li>一个名称为YourName.github.io的仓库</li><li>安装Git</li><li>安装Node.js</li><li>安装Hexo</li></ul><blockquote><p>前4步操作直接百度就好，我在此主要讲建立Blog的主要过程以及一些需要注意的问题和坑。因为我个人使用的是Windows的系统，在此不讲解其他系统的搭建过程，但是大同小异，可以参考。</p></blockquote><h5 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h5><ol><li><p>在确保你安装好<code>Git</code>的前提下，在终端中输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></li><li><p>然后在终端中输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo v</span><br></pre></td></tr></table></figure><p>若出现下图则说明你已经成功安装<code>Hexo。</code></p><p><img src="/2019/02/26/blog/blog-build/hexo-v.png" alt="安装成功示例图"></p></li><li><p>创建一个目录，作为你的blog目录。</p></li><li><p>进入该目录。</p><p><img src="/2019/02/26/blog/blog-build/cd-blog.png" alt="示例图"></p></li><li><p>初始化该目录，初始化的过程可能会稍微花费一些时间；</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure><p>当终端中显示<code>INFO Start blogging with Hexo!</code>的时候说明初始化成功了。</p><p><img src="/2019/02/26/blog/blog-build/hexo-init.png" alt="示例图"></p></li><li><p>安装<code>Hexo</code>运行所需要的相关组件及依赖；</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install //或者 yarn 我个人推荐使用后者</span><br></pre></td></tr></table></figure><p><img src="/2019/02/26/blog/blog-build/npm-install.png" alt="示例图"></p><p>如果终端中未出现<code>ERROR</code>等错误提示，<code>WARN</code>警告我们直接忽略就好。</p></li><li><p>在终端中输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>启动服务器，</p><p><img src="/2019/02/26/blog/blog-build/hexo-s.png" alt="示例图"></p><p>如此显示说明<code>Hexo</code>已经启动了，我们就可以进入有下划线的网址<code>http://localhost:4000</code>浏览我们的博客长啥样了。</p><p><img src="/2019/02/26/blog/blog-build/hexo-index.png" alt="示例图"></p><p>到此为止，<code>Hexo</code>的安装已经结束了。</p></li></ol><h5 id="三、将我们的Hexo博客部署在我们的Username-github-io仓库中"><a href="#三、将我们的Hexo博客部署在我们的Username-github-io仓库中" class="headerlink" title="三、将我们的Hexo博客部署在我们的Username.github.io仓库中"></a>三、将我们的Hexo博客部署在我们的<code>Username.github.io</code>仓库中</h5><ol><li><p>新建一个仓库，仓库名必须为<code>xxx.github.io</code>，一般xxx与你GitHub昵称相同。</p><p><img src="/2019/02/26/blog/blog-build/new-repo.png" alt="示例图"></p><p><img src="/2019/02/26/blog/blog-build/add-repo.png" alt="示例图"></p></li><li><p>因为<code>Hexo</code>部署需要通过GitHub的ssh连接，所以需要配置一个<code>ssh key</code>，配置方法百度即可。</p></li><li><p>安装<code>hexo-deployer-git</code>插件（非常重要）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git //或者 yarn add hexo-deployer-git</span><br></pre></td></tr></table></figure></li><li><p>修改<code>Hexo</code>的配置文件<code>_config.yml</code>，连接你的GitHub仓库，</p><p><img src="/2019/02/26/blog/blog-build/deploy.png" alt="示例图"></p><p><code>type</code>设置为<code>git</code>，<code>repo</code>填写你的GitHub仓库地址，<code>branck</code>填写<code>master</code></p><p><img src="/2019/02/26/blog/blog-build/github-repo.png" alt="示例图"></p></li><li><p>在终端中按住<code>ctrl + c</code>结束正在运行的<code>Hexo</code>服务，然后输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g //生成部署的文件，在public目录下</span><br></pre></td></tr></table></figure><p><img src="/2019/02/26/blog/blog-build/hexo-g.png" alt="示例图"></p><p>接着输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d //将生成的部署文件上传到我们之前新建的GitHub仓库中</span><br></pre></td></tr></table></figure><blockquote><p>因为打印的日志有点多，我就截取主要部分。</p></blockquote><p><img src="/2019/02/26/blog/blog-build/hexo-d-1.png" alt="示例图"></p><p><img src="/2019/02/26/blog/blog-build/hexo-d-2.png" alt="示例图"></p><p>出现最后一行说明我们已经成功的将我们的<code>Hexo</code>blog部署到我们的GitHub仓库中了。</p><p>这时我们可以打开GitHub进入我们的仓库查看上传的文件有哪些。</p><p><img src="/2019/02/26/blog/blog-build/github-new.png" alt="示例图"></p><p>到这里就差最后一步了！</p></li><li><p>修改GitHub仓库设置，在<code>GitHub Pages</code>中修改选中的分支，将分支修改为<code>master branch</code>，等待页面刷新之后，我们就可以拿到<code>https://xxx.github.io</code>这个网址了~（这里因为我之前有建立过blog，所以就直接拿我之前blog的设置来做例子了~）</p><p><img src="/2019/02/26/blog/blog-build/repo-setting.png" alt="示例图"></p><p><img src="/2019/02/26/blog/blog-build/page-setting.png" alt="示例图"></p><p><img src="/2019/02/26/blog/blog-build/get-address.png" alt="示例图"></p></li><li><p>这个时候，我们打开网址，即<code>https://xxx.github.io</code>，就可以看到我们的<code>Hexo</code>博客了！记得xxx是你当初设置的~记得替换。（可能在设置完GitHub Pages之后需要等个几分钟才能看到我们的页面）</p></li></ol><h5 id="四、安装过程中可能会碰到的问题"><a href="#四、安装过程中可能会碰到的问题" class="headerlink" title="四、安装过程中可能会碰到的问题"></a>四、安装过程中可能会碰到的问题</h5><ul><li><p>问题1：4000端口被占用，无法启动服务</p><p><img src="/2019/02/26/blog/blog-build/hexo-s-err.png" alt="示例图"></p><p>解决方法：改变服务器的端口号</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 端口号 // 端口号可以是未被占用的</span><br></pre></td></tr></table></figure><p><img src="/2019/02/26/blog/blog-build/hexo-s-p.png" alt="示例图"></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网易云音乐 for electron开发日记</title>
       <link href="/2019/02/26/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/"/>
       <url>/2019/02/26/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/</url>
