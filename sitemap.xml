@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/03/01/JavaScript/Study/Study/</loc>
+    
+    <lastmod>2019-03-01T02:54:21.608Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/02/26/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/</loc>
+    
+    <lastmod>2019-02-28T02:50:37.783Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/02/27/blog/blog-set/</loc>
     
     <lastmod>2019-02-27T09:51:10.903Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://yoursite.com/2019/02/26/blog/blog-build/</loc>
     
     <lastmod>2019-02-27T09:41:25.729Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/02/26/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/</loc>
-    
-    <lastmod>2019-02-26T07:36:18.021Z</lastmod>
     
   </url>
   
