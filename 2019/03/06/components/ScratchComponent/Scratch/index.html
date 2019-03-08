@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,blog,">
+  <meta name="keywords" content="vue,component,">
 
 
 
@@ -83,24 +83,22 @@
 
 
 
-<meta name="description" content="本文将会对Hexo的NexT主题的部分配置进行讲解，这是该系列的第三篇">
-<meta name="keywords" content="Hexo,blog">
+<meta name="description" content="本文主要讲解了一个vue组件——刮刮乐的实现">
+<meta name="keywords" content="vue,component">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客主题NexT相关配置">
-<meta property="og:url" content="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/index.html">
+<meta property="og:title" content="vue刮刮乐组件">
+<meta property="og:url" content="http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/index.html">
 <meta property="og:site_name" content="HuangJunjia&#39;s Blog">
-<meta property="og:description" content="本文将会对Hexo的NexT主题的部分配置进行讲解，这是该系列的第三篇">
+<meta property="og:description" content="本文主要讲解了一个vue组件——刮刮乐的实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/oauth.png">
-<meta property="og:image" content="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/client.png">
-<meta property="og:image" content="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/next-gitment-set.png">
-<meta property="og:image" content="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/link-set.png">
-<meta property="og:image" content="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/gitment-init.png">
-<meta property="og:updated_time" content="2019-02-27T09:41:40.223Z">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/scratch-demo.gif">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/gray-canvas.png">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/scratch-clear.gif">
+<meta property="og:updated_time" content="2019-03-08T07:29:27.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客主题NexT相关配置">
-<meta name="twitter:description" content="本文将会对Hexo的NexT主题的部分配置进行讲解，这是该系列的第三篇">
-<meta name="twitter:image" content="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/oauth.png">
+<meta name="twitter:title" content="vue刮刮乐组件">
+<meta name="twitter:description" content="本文主要讲解了一个vue组件——刮刮乐的实现">
+<meta name="twitter:image" content="http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/scratch-demo.gif">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/">
+  <link rel="canonical" href="http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/">
 
 
 
 
 
-  <title>Hexo博客主题NexT相关配置 | HuangJunjia's Blog</title>
+  <title>vue刮刮乐组件 | HuangJunjia's Blog</title>
   
 
 
@@ -305,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/">
+    <link itemprop="mainEntityOfPage" href="http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HuangJunjia">
@@ -322,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo博客主题NexT相关配置</h1>
+          <h1 class="post-title" itemprop="name headline">vue刮刮乐组件</h1>
         
 
         <div class="post-meta">
@@ -334,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T10:14:32+08:00">
-                2019-02-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T13:31:22+08:00">
+                2019-03-06
               </time>
             
 
@@ -357,19 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/vue组件/" itemprop="url" rel="index">
+                    <span itemprop="name">vue组件</span>
                   </a>
                 </span>
 
@@ -392,7 +379,7 @@
 
           
               <div class="post-description">
-                  本文将会对Hexo的NexT主题的部分配置进行讲解，这是该系列的第三篇
+                  本文主要讲解了一个vue组件——刮刮乐的实现
               </div>
           
 
@@ -410,73 +397,44 @@
 
       
         <blockquote>
-<p>因为我的<code>Hexo</code>博客用的是<code>NexT</code>主题，故其他主题的配置我不是很清楚。</p>
+<p>因为之前的项目中有用到h5小游戏，其中有一个就是刮刮乐，正好canvas最近用的次数很多，想了想，就用canvas写一个吧。</p>
 </blockquote>
-<p>主题配置文件路径为：<code>themes/next/_config.yml</code></p>
-<h5 id="一、主题风格"><a href="#一、主题风格" class="headerlink" title="一、主题风格"></a>一、主题风格</h5><p>以下操作均在<code>_config.yml</code>文件内进行。</p>
+<h5 id="一、演示图"><a href="#一、演示图" class="headerlink" title="一、演示图"></a>一、演示图</h5><p>先上一个演示，就不把演示放到文末了。</p>
+<p><img src="/2019/03/06/components/ScratchComponent/Scratch/scratch-demo.gif" width="300"></p>
+<h5 id="二、实现思路"><a href="#二、实现思路" class="headerlink" title="二、实现思路"></a>二、实现思路</h5><p>其实刮刮乐算是<code>canvas</code>中入门的一种使用了，简单地说实现的过程，用<code>canvas</code>绘制一个灰色的涂层，然后监听<code>mousedown</code>、<code>mousemove</code>和<code>mouseup</code>事件，在移动端中则是监听<code>touchstart</code>、<code>touchmove</code>和<code>touchend</code>事件，这个过程就是我们“刮开”刮刮乐的过程了。那么这么设计的页面中，实际有两层，第一层当然是我们的灰色的涂层啦，第二层就是我们的中奖文字或者中奖图片。</p>
+<h5 id="三、开始"><a href="#三、开始" class="headerlink" title="三、开始"></a>三、开始</h5><ol>
+<li><p>首先我们需要在页面上先绘制一个canvas“涂层”</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这是一个canvas --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">width</span>=<span class="string">"300"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">height</span>=<span class="string">"185"</span>&gt;</span></span><br><span class="line">	很遗憾你的浏览器不支持canvas</span><br><span class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>接着，咱们给这个涂层上个色</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取我们canvas元素</span></span><br><span class="line"><span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);  </span><br><span class="line"><span class="comment">//设置一个上下文为"2d"的画布</span></span><br><span class="line"><span class="keyword">let</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//开始绘制一个涂满灰色的矩形，其中宽高为canvas的宽高</span></span><br><span class="line">ctx.save();</span><br><span class="line">ctx.fillStyle = <span class="string">"#666"</span>;</span><br><span class="line">ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line">ctx.restore();</span><br></pre></td></tr></table></figure>
+<p>这个时候你应该能在你的页面上看到一个灰色的涂层了</p>
+<p><img src="/2019/03/06/components/ScratchComponent/Scratch/gray-canvas.png" width="300"></p>
+</li>
+<li><p>接下来，我们开始实现“刮开”这一个过程了，这个过程思路很简单，我在这里以移动端做举例：</p>
 <ol>
-<li><p>修改<code>scheme</code>属性可以修改<code>NexT</code>主题的风格</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>menu</code>属性可以修改主题的菜单项</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Menu Settings 菜单设置</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -&gt; archives).</span><br><span class="line"># Usage: `Key: /link/ || icon`</span><br><span class="line"># Key is the name of menu item. If translate for this menu will find in languages - this translate will be loaded; if not - Key name will be used. Key is case-senstive.</span><br><span class="line"># Value before `||` delimeter is the target link.</span><br><span class="line"># Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.</span><br><span class="line">menu:</span><br><span class="line">  home: / || home  # 首页</span><br><span class="line">  about: /about/ || user  # 关于</span><br><span class="line">  tags: /tags/ || tags  # 标签</span><br><span class="line">  categories: /categories/ || th  # 分类</span><br><span class="line">  archives: /archives/ || archive  # 归档</span><br><span class="line">  #schedule: /schedule/ || calendar  # 日程</span><br><span class="line">  #sitemap: /sitemap.xml || sitemap  # 网站地图</span><br><span class="line">  #commonweal: /404/ || heartbeat</span><br><span class="line"></span><br><span class="line"># 是否使用网站icon</span><br><span class="line"># Enable/Disable menu icons.</span><br><span class="line">menu_icons:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>添加<code>tags(标签页)</code>、<code>categories(分类)</code>、<code>archives(归档)</code>、<code>about(关于)</code>菜单项需要新建对应的页面，如果未新建对应的页面，点击菜单项跳转后会提示<code>page not found</code>，新建页面需要在网站根目录下打开终端，然后输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n page <span class="string">"tages"</span> <span class="comment"># 新建标签页</span></span><br><span class="line">hexo n page <span class="string">"categories"</span> <span class="comment"># 新建分类页</span></span><br><span class="line">hexo n page <span class="string">"archives"</span> <span class="comment"># 新建归档页</span></span><br><span class="line">hexo n page <span class="string">"about"</span> <span class="comment"># 新建关于页</span></span><br></pre></td></tr></table></figure>
-<p>新建菜单页后会在<code>source/</code>下生成一个新的目录，目录名对应<code>tags</code>、<code>categories</code>等。</p>
-<p>进入对应的目录下可以看到一个<code>index.md</code>文件，用编辑器打开之后内容为(此处用<code>tags</code>目录下的<code>index.md</code>做举例，其他的类似)：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-02-26 13:42:22</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>然后在<code>date</code>属性下面添加一个<code>type</code>属性，作用是设置该md文件的类型：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-02-26 13:42:22</span><br><span class="line">type: "tags" # 这是新添加的</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<li>手指按下按在屏幕上，这个时候监听到<code>touchstart</code>事件</li>
+<li>在<code>touchstart</code>事件里再监听<code>touchmove</code>事件用以判断手指头是否在屏幕上滑动</li>
+<li>根据我们手指的路径去“清除”canvas中画好的灰色图层</li>
+<li>最后在手指离开屏幕触发<code>touchend</code>事件的时候判断我们清除了多少的像素，达到一定比例直接隐藏涂层</li>
+</ol>
+<p>思路理清了，咱们开始吧！</p>
+<p>因为要考虑同时兼容pc端和移动端，所以我们需要考虑设备信息是哪种设备</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> device = <span class="regexp">/android|iphone|ipad|ipod|webos|iemobile|opear mini|linux/i</span>.test(navigator.userAgent.toLowerCase());  <span class="comment">//判断是否是移动设备</span></span><br><span class="line"><span class="keyword">let</span> startEvtName = device ? <span class="string">"touchstart"</span> : <span class="string">"mousedown"</span>;</span><br><span class="line"><span class="keyword">let</span> moveEvtName = device ? <span class="string">"touchmove"</span> : <span class="string">"mousemove"</span>;</span><br><span class="line"><span class="keyword">let</span> endEvtName = device ? <span class="string">"touchend"</span> : <span class="string">"mouseup"</span>;</span><br></pre></td></tr></table></figure>
+<p>接下来我们编写清楚涂层的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clear</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//获取鼠标或者手指距离屏幕的x坐标</span></span><br><span class="line">    <span class="keyword">let</span> x = device ? event.targetTouches[<span class="number">0</span>].clientX : event.clientX;</span><br><span class="line">    <span class="comment">//获取鼠标或者手指距离屏幕的y坐标</span></span><br><span class="line">    <span class="keyword">let</span> y = device ? event.targetTouches[<span class="number">0</span>].clientY : event.clientY;</span><br><span class="line">    <span class="comment">//获取canvas元素相对于视窗的位置</span></span><br><span class="line">    <span class="keyword">let</span> bbox = canvas.getBoundingClientRect();</span><br><span class="line">    <span class="comment">//开始绘制涂抹动作的canvas</span></span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    <span class="comment">//canvas的globalCompositeOperation属性指的是canvas中的合成操作</span></span><br><span class="line">    <span class="comment">//将该属性设置为"destination-out"会将在与canvas源不重叠的区域上保留目标，其他部分都变成透明</span></span><br><span class="line">    ctx.globalCompositeOperation = <span class="string">"destination-out"</span>;</span><br><span class="line">    <span class="comment">//因为要模拟手机涂抹过程，所以涂抹的图形选择圆形，在这里绘制一个原型，半径为20px</span></span><br><span class="line">    ctx.arc(x - bbox.left, y - bbox.top, <span class="number">20</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>, <span class="literal">false</span>);</span><br><span class="line">    ctx.fill();</span><br><span class="line">    ctx.closePath();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后我们开始监听鼠标或者手指触发的事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//监听开始即鼠标按下或者手指触摸时的事件</span></span><br><span class="line">canvas.addEventListener(startEvtName, (e) =&gt; &#123;</span><br><span class="line">    <span class="comment">//监听鼠标移动或者手指移动的事件，同时调用clear函数清楚图层</span></span><br><span class="line">    canvas.addEventListener(moveEvtName, clear, <span class="literal">false</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>这里设置好之后我们就可以开始实现刮开的动作了</p>
+<p><img src="/2019/03/06/components/ScratchComponent/Scratch/scratch-clear.gif" width="300"></p>
+<p>但是在刮开涂层的过程中我们会发现，假如页面有滚动条，我们会拖着页面一起滚动，那我们来解决这个问题吧！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">canvas.addEventListener(startEvtName, (e) =&gt; &#123;</span><br><span class="line">    <span class="comment">//禁止会引起屏幕滚动的事件</span></span><br><span class="line">    e.preventDefault();</span><br><span class="line">    canvas.addEventListener(moveEvtName, draw, <span class="literal">false</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>我们通过<code>e.preventDefault()</code>来禁用屏幕滚动，这下我们再刮开涂层试试，是不是就不会滚动了？</p>
+<p>接下来，我们来实现当刮开一定面积的涂层的时候涂层自动消失</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//监听鼠标弹起或者手指离开屏幕的事件</span></span><br><span class="line">canvas.addEventListener(endEvtName, () =&gt; &#123;</span><br><span class="line">    <span class="comment">//获取canvas全部的像素点，这里需要用到getImageData方法</span></span><br><span class="line">    <span class="comment">//getImageData(int x,int y,int width,int height)：该方法获取canvas上从(x,y)点开始，宽为width、高为height的图片区域的数据，该方法返回的是一个CanvasPixelArray对象，该对象具有width、height、data等属性。data属性为一个数组，该数组每4个元素对应一个像素点。</span></span><br><span class="line">    <span class="keyword">let</span> imageDate = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line">    <span class="comment">//记录整个canvas所有像素点</span></span><br><span class="line">    <span class="keyword">let</span> allPX = imageDate.width * imageDate.height;</span><br><span class="line">    <span class="comment">//记录刮开的像素点个数</span></span><br><span class="line">    <span class="keyword">let</span> iNum = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//通过for循环判断刮开了多少个像素点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; allPX; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (imageDate.data[i * <span class="number">4</span> + <span class="number">3</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">            iNum++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//当刮开的像素点数量大于等于总像素点数量的40%时隐藏canvas</span></span><br><span class="line">    <span class="keyword">if</span> (iNum &gt;= allPX / <span class="number">2.5</span>) &#123;</span><br><span class="line">        canvas.style.display = <span class="string">"none"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h5 id="二、引入评论功能"><a href="#二、引入评论功能" class="headerlink" title="二、引入评论功能"></a>二、引入评论功能</h5><p><code>Hexo</code>支持多种评论平台，我使用的是<code>Gitment</code>，这是一个基于<code>GitHub issues</code>的第三方评论系统，他使用了你的<code>GtiHub</code>仓库中的<code>issues</code>作为评论系统。效果可以查看<a href="https://imsun.github.io/gitment/" target="_blank" rel="noopener">Gitment DEMO</a>。</p>
-<p>我选择<code>Gitment</code>的原因主要有：</p>
-<ol>
-<li><code>Gitment</code>是基于<code>GitHub issues</code>开发的评论系统，而我的博客就是通过<code>GitHub</code>搭建的，使用起来会更加方便。</li>
-<li>我的博客主要是用于记录我在<code>JavaScript</code>、<code>VUE</code>、<code>Node.js</code>等知识学习中遇到的一些问题以及我的学习心得，主要内容以代码为主，所以对<code>GitHub</code>的东西有一种“特殊”的感情。</li>
-<li><code>Gitment</code>的评论会直接添加在我对应的<code>GitHub issues</code>中，我在查看评论时会更加的方便。</li>
-</ol>
-<p>接下来就开始我们的添加之旅吧~</p>
-<ol>
-<li><p>首先在博客</p>
-</li>
-<li><p>申请一个<code>Github OAuth Application</code>，<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">注册地址</a></p>
-<blockquote>
-<p> <strong>注意，在<code>Authorization callback URL</code>这一栏一定要填写你的网站<code>url</code>，即：`<a href="https://xxx.github.io" target="_blank" rel="noopener">https://xxx.github.io</a></strong>`</p>
-</blockquote>
-<p><img src="/2019/02/27/blog/blog-theme-set/oauth.png" alt="示例图"></p>
-</li>
-<li><p>注册成功之后你会获得一个<code>Client ID</code>和<code>Client Secret</code>，用于之后的<code>Gitment</code>评论系统登录。</p>
-<p><img src="/2019/02/27/blog/blog-theme-set/client.png" alt="示例图"></p>
-</li>
-<li><p>修改<code>NexT</code>主题的配置文件，路径为：<code>博客根目录/theme/_config.yml</code>，找到<code>Gitment</code>属性（如果没有可以自行添加）</p>
-<p><img src="/2019/02/27/blog/blog-theme-set/next-gitment-set.png" alt="示例图"></p>
-<p>其中<code>github_user</code>是你的<code>GitHub</code>账户名，<code>github_repo</code>则是你这个仓库名（这个仓库名是用于存放你的评论位置的，一般用一个空仓库或者博客的仓库，不要在此填写仓库连接，填写仓库名就行了），<code>client_id</code>是我们在步骤2注册成功后<code>GitHub</code>给我们的<code>Client ID</code>，<code>client_secret</code>是刚才的<code>Client Secret</code>。<strong>注意：在<code>:</code>之后必须添加一个空格</strong></p>
-<p>在主题的根目录下我们打开<code>~/layout/_third-party/comments/</code>，在该目录下编辑<code>gitment.swig</code>文件内容（该文件一般为<code>NexT</code>主题自带）。我们需要将<code>gitment</code>的部分<code>link</code>的<code>href</code>更换，因为<code>gitment</code>使用的是<code>GitHub</code>的服务器，存在跨域的问题，原作者的网站证书失效了，所以我们需要修改并引用别人的<code>.css</code>和<code>.js</code>文件替换掉来解决跨域问题，要不然在登录<code>gitment</code>的时候会<code>alert</code>报错<code>[object ProgressEvent]</code>。</p>
-<p>在这里我百度了一下问题，给大家列出两个解决方案：</p>
-<ol>
-<li>修改浏览器设置，将<code>https://gh-oauth.imsun.net/</code>加入例外，但是别人浏览你的博客的时候不一定会添加。</li>
-<li>修改<code>~/layout/_third-party/comments/gitment.swing</code>文件，将里面的<code>https://imsun.github.io/gitment/style/default.css</code>替换为<code>https://www.wenjunjiang.win/css/gitment.css</code>；<code>https://imsun.github.io/gitment/dist/gitment.browser.js</code>替换为<code>https://www.wenjunjiang.win/js/gitment.js</code></li>
-</ol>
-<p>使用方案2记得要将<code>NexT</code>主题的设置中的<code>gitment</code>下的<code>mint</code>属性修改为<code>false</code></p>
-<p><img src="/2019/02/27/blog/blog-theme-set/link-set.png" alt="示例图"></p>
-</li>
-</ol>
-<p>到这里基本你在你的博客博文下都能看到<code>gitment</code>的评论框了，不过使用之前还需要做两个步骤：</p>
-<ol>
-<li><p>博客的主人需要登录并绑定对应的<code>GitHub</code>帐号；</p>
-</li>
-<li><p>登录之后需要对每篇博文下的评论功能进行初始化，需要一篇篇的点（无奈的表情渐渐浮现），不过网上有人写了批处理脚本，但是我没尝试过。</p>
-<p><img src="/2019/02/27/blog/blog-theme-set/gitment-init.png" alt="示例图"></p>
-</li>
-</ol>
-<hr>
-<blockquote>
-<p>到了，到此<code>Hexo</code>+<code>GitHub</code>搭建博客的文章基本结束了，以后还有什么遇到的坑我会继续补充的。</p>
-</blockquote>
+<h5 id="四、结语"><a href="#四、结语" class="headerlink" title="四、结语"></a>四、结语</h5><p>具体怎么移植到vue里我就不做介绍啦~感谢大家看到这里，有什么我讲不清楚的麻烦在评论区给我留个言！！！</p>
+<p>最后再次感谢大家！</p>
 
       
     </div>
@@ -494,9 +452,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/component/" rel="tag"># component</a>
           
         </div>
       
@@ -509,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/blog/blog-set/" rel="next" title="Hexo的设置">
-                <i class="fa fa-chevron-left"></i> Hexo的设置
+              <a href="/2019/03/04/JavaScript/VUE/VueStudy/" rel="next" title="VueStudy">
+                <i class="fa fa-chevron-left"></i> VueStudy
               </a>
             
           </div>
@@ -518,10 +476,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/01/JavaScript/Study/Study/" rel="prev" title="Study">
-                Study <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、主题风格"><span class="nav-text">一、主题风格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、引入评论功能"><span class="nav-text">二、引入评论功能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、演示图"><span class="nav-text">一、演示图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、实现思路"><span class="nav-text">二、实现思路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、开始"><span class="nav-text">三、开始</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四、结语"><span class="nav-text">四、结语</span></a></li></ol></div>
             
 
           </div>
@@ -860,7 +814,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitment({
-            id: '1551233672000', 
+            id: '1551850282000', 
             owner: 'HuangJunjia',
             repo: 'HuangJunjia.github.io',
             
