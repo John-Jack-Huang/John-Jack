@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://huangjunjia.github.io/2019/03/01/JavaScript/Study/Study/</loc>
+    
+    <lastmod>2019-03-15T06:14:34.801Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/</loc>
     
-    <lastmod>2019-03-08T07:29:27.718Z</lastmod>
+    <lastmod>2019-03-09T14:52:33.369Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>http://huangjunjia.github.io/2019/03/04/JavaScript/VUE/VueStudy/</loc>
     
     <lastmod>2019-03-04T08:26:07.974Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://huangjunjia.github.io/2019/03/01/JavaScript/Study/Study/</loc>
-    
-    <lastmod>2019-03-01T02:54:21.608Z</lastmod>
     
   </url>
   

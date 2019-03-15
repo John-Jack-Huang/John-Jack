@@ -93,7 +93,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/03/01/JavaScript/Study/Study/before-copy.jpg">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/03/01/JavaScript/Study/Study/obj-copy.jpg">
-<meta property="og:updated_time" content="2019-03-01T02:54:21.608Z">
+<meta property="og:updated_time" content="2019-03-15T06:14:34.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Study">
 <meta name="twitter:description" content="在这篇博文中我将会记录一些我在学习JavaScript道路上学到的东西……">
@@ -389,6 +389,8 @@
 <p>例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;;     <span class="comment">//Object</span></span><br><span class="line"><span class="keyword">var</span> a = [];     <span class="comment">//Array</span></span><br><span class="line"><span class="keyword">var</span> e = <span class="regexp">/^$/</span>;   <span class="comment">//RegExp</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"o:"</span>, o <span class="keyword">instanceof</span> <span class="built_in">Object</span>);  <span class="comment">// 输出 o: true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"a:"</span>, a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);   <span class="comment">// 输出 a: true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"e:"</span>, e <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);  <span class="comment">// 输出 e: true</span></span><br></pre></td></tr></table></figure>
 <p>在检测一个引用类型值和<code>Object</code>构造函数的时候，<code>instanceof</code>操作符会返回<code>true</code>，但是如果我们使用<code>instanceof</code>操作符去检测基本类型的值时，始终会返回<code>false</code>，因为被检测的参数是基本类型而不是对象。</p>
+<h5 id="三、new-Date-在safari上的坑"><a href="#三、new-Date-在safari上的坑" class="headerlink" title="三、new Date()在safari上的坑"></a>三、new Date()在safari上的坑</h5><p>在平常设置指定日期的时候我们常用<code>new Date(&quot;yyyy-MM-dd HH:mm:ss&quot;)</code>的格式将字符型的日期转换成<code>Date</code>类型，在大多数主流浏览器中都能正确的设置日期，但是在<code>safari</code>中却报错并返回<code>Invalid Date</code>。</p>
+<p>所以当我们在使用<code>new Date()</code>之前，需要将日期字符串转换为<code>safari</code>所能识别的格式，具体有哪些格式大家可以去尝试，我个人推荐使用<code>yyyy/MM/dd HH:mm:ss</code>的格式，因为在<code>IE8</code>中不支持<code>-</code>的方式分割日期，推荐是用<code>/</code>进行分割。</p>
 
       
     </div>
@@ -570,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、复制变量"><span class="nav-text">一、复制变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、检测类型"><span class="nav-text">二、检测类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、复制变量"><span class="nav-text">一、复制变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、检测类型"><span class="nav-text">二、检测类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、new-Date-在safari上的坑"><span class="nav-text">三、new Date()在safari上的坑</span></a></li></ol></div>
             
 
           </div>
