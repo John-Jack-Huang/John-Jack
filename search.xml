@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[VueStudy]]></title>
     <url>%2F2019%2F03%2F04%2FJavaScript%2FVUE%2FVueStudy%2F</url>
-    <content type="text"><![CDATA[一、因为name值没写对引起的死循环在实战中不小心将页面的name值写成了页面中调用的一个组件的name值，然后在进入页面之后报错，百度之后是因为发生了死循环： 找了半天注释掉了各种for循环或者forEach超级循环等代码之后还是报这个错误。挠头想了一想，突然瞥到页面的name值和组件的name值写的一样了，然后修改了页面的name值之后一切正常。]]></content>
+    <content type="text"><![CDATA[一、因为name值没写对引起的死循环在实战中不小心将页面的name值写成了页面中调用的一个组件的name值，然后在进入页面之后报错，百度之后是因为发生了死循环： 找了半天注释掉了各种for循环或者forEach超级循环等代码之后还是报这个错误。挠头想了一想，突然瞥到页面的name值和组件的name值写的一样了，然后修改了页面的name值之后一切正常。 二、在vue中格式化input框中v-model的内容当我们需要格式化一个内容的时候可以直接使用filters，例如 1&lt;span&gt;&#123;&#123;inputDate | date&#125;&#125;&lt;/span&gt; 但是当我们需要格式化的对象是input标签的v-model的时候发现filters并不起作用。 这是因为input标签的特性决定的：所见即所得。即value属性的值就是显示的值。 在vue中，其实v-model是封装了v-bind和v-on的一个语法糖，如果我们需要格式化input输入框中的内容的时候，我们需要通过v-on去调用一个方法去格式化v-bind绑定的值。]]></content>
       <tags>
         <tag>vue</tag>
       </tags>

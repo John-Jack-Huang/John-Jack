@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://huangjunjia.github.io/2019/03/04/JavaScript/VUE/VueStudy/</loc>
+    <lastmod>2019-03-15</lastmod>
+  </url>  <url>
     <loc>http://huangjunjia.github.io/2019/03/01/JavaScript/Study/Study/</loc>
     <lastmod>2019-03-15</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/03/06/components/ScratchComponent/Scratch/</loc>
     <lastmod>2019-03-09</lastmod>
-  </url>  <url>
-    <loc>http://huangjunjia.github.io/2019/03/04/JavaScript/VUE/VueStudy/</loc>
-    <lastmod>2019-03-04</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/02/26/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/</loc>
     <lastmod>2019-02-28</lastmod>
