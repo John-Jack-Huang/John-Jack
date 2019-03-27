@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mini版网易云音乐for electron-vue开发日志1]]></title>
+    <url>%2F2019%2F03%2F25%2FNeteseCloudMusic%2FMiniApp%2Fday1%2F</url>
+    <content type="text"><![CDATA[跨域问题依旧是这个问题，太头疼了的一个问题，因为API服务器是用的@Binaryify的GitHub项目，我放到我的阿里云服务器上直接用pm2启动后就不管了，然后尝试了在google和baidu中搜到的方案(也许真正的方案我没搜到)，发现都没办法，然后干脆给axios设置的一个baseURL（不是因为我懒），毕竟我的所有请求都发向我的服务器地址，所以也算是一个解决方案吧 12axios.defaults.baseURL = "服务器地址";Vue.http = Vue.prototype.$http = axios 为什么本地测试的界面比build之后的界面要小很多最开始一直在本地开发以及测试，然后发现我build然后运行后，整个界面，包括字体、宽高等等的样式全部变大了，尝试在src/main/index.js中修改视窗比例后发现无效，在某不存在的网站google上搜到了一个解决方案，这个方案来自这是地址 123456let devInnerHeight = 1080.0 // 开发时的InnerHeightlet devDevicePixelRatio = 1.0// 开发时的devicepixelratiolet devScaleFactor = 1 // 开发时的ScaleFactorlet scaleFactor = require('electron').screen.getPrimaryDisplay().scaleFactorlet zoomFactor = (window.innerHeight / devInnerHeight) * (window.devicePixelRatio / devDevicePixelRatio) * (devScaleFactor / scaleFactor)require('electron').webFrame.setZoomFactor(zoomFactor) 这里修改需要在src/renderer/main.js内添加]]></content>
+      <categories>
+        <category>个人项目</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>网易云音乐</tag>
+        <tag>electron-vue</tag>
+        <tag>个人项目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue刮刮乐组件]]></title>
     <url>%2F2019%2F03%2F06%2Fcomponents%2FScratchComponent%2FScratch%2F</url>
     <content type="text"><![CDATA[因为之前的项目中有用到h5小游戏，其中有一个就是刮刮乐，正好canvas最近用的次数很多，想了想，就用canvas写一个吧。 一、演示图先上一个演示，就不把演示放到文末了。 二、实现思路其实刮刮乐算是canvas中入门的一种使用了，简单地说实现的过程，用canvas绘制一个灰色的涂层，然后监听mousedown、mousemove和mouseup事件，在移动端中则是监听touchstart、touchmove和touchend事件，这个过程就是我们“刮开”刮刮乐的过程了。那么这么设计的页面中，实际有两层，第一层当然是我们的灰色的涂层啦，第二层就是我们的中奖文字或者中奖图片。 三、开始 首先我们需要在页面上先绘制一个canvas“涂层” 123456&lt;!-- 这是一个canvas --&gt;&lt;canvas id="canvas" width="300" height="185"&gt; 很遗憾你的浏览器不支持canvas&lt;/canvas&gt; 接着，咱们给这个涂层上个色 12345678910//获取我们canvas元素let canvas = document.getElementById("canvas"); //设置一个上下文为"2d"的画布let ctx = canvas.getContext("2d");//开始绘制一个涂满灰色的矩形，其中宽高为canvas的宽高ctx.save();ctx.fillStyle = "#666";ctx.fillRect(0, 0, canvas.width, canvas.height);ctx.restore(); 这个时候你应该能在你的页面上看到一个灰色的涂层了 接下来，我们开始实现“刮开”这一个过程了，这个过程思路很简单，我在这里以移动端做举例： 手指按下按在屏幕上，这个时候监听到touchstart事件 在touchstart事件里再监听touchmove事件用以判断手指头是否在屏幕上滑动 根据我们手指的路径去“清除”canvas中画好的灰色图层 最后在手指离开屏幕触发touchend事件的时候判断我们清除了多少的像素，达到一定比例直接隐藏涂层 思路理清了，咱们开始吧！ 因为要考虑同时兼容pc端和移动端，所以我们需要考虑设备信息是哪种设备 1234let device = /android|iphone|ipad|ipod|webos|iemobile|opear mini|linux/i.test(navigator.userAgent.toLowerCase()); //判断是否是移动设备let startEvtName = device ? "touchstart" : "mousedown";let moveEvtName = device ? "touchmove" : "mousemove";let endEvtName = device ? "touchend" : "mouseup"; 接下来我们编写清楚涂层的方法 1234567891011121314151617function clear(event) &#123; //获取鼠标或者手指距离屏幕的x坐标 let x = device ? event.targetTouches[0].clientX : event.clientX; //获取鼠标或者手指距离屏幕的y坐标 let y = device ? event.targetTouches[0].clientY : event.clientY; //获取canvas元素相对于视窗的位置 let bbox = canvas.getBoundingClientRect(); //开始绘制涂抹动作的canvas ctx.beginPath(); //canvas的globalCompositeOperation属性指的是canvas中的合成操作 //将该属性设置为"destination-out"会将在与canvas源不重叠的区域上保留目标，其他部分都变成透明 ctx.globalCompositeOperation = "destination-out"; //因为要模拟手机涂抹过程，所以涂抹的图形选择圆形，在这里绘制一个原型，半径为20px ctx.arc(x - bbox.left, y - bbox.top, 20, 0, Math.PI * 2, false); ctx.fill(); ctx.closePath();&#125; 最后我们开始监听鼠标或者手指触发的事件 12345//监听开始即鼠标按下或者手指触摸时的事件canvas.addEventListener(startEvtName, (e) =&gt; &#123; //监听鼠标移动或者手指移动的事件，同时调用clear函数清楚图层 canvas.addEventListener(moveEvtName, clear, false);&#125;, false); 这里设置好之后我们就可以开始实现刮开的动作了 但是在刮开涂层的过程中我们会发现，假如页面有滚动条，我们会拖着页面一起滚动，那我们来解决这个问题吧！ 12345canvas.addEventListener(startEvtName, (e) =&gt; &#123; //禁止会引起屏幕滚动的事件 e.preventDefault(); canvas.addEventListener(moveEvtName, clear, false);&#125;, false); 我们通过e.preventDefault()来禁用屏幕滚动，这下我们再刮开涂层试试，是不是就不会滚动了？ 接下来，我们来实现当刮开一定面积的涂层的时候涂层自动消失 123456789101112131415161718192021//监听鼠标弹起或者手指离开屏幕的事件canvas.addEventListener(endEvtName, () =&gt; &#123; //获取canvas全部的像素点，这里需要用到getImageData方法 //getImageData(int x,int y,int width,int height)：该方法获取canvas上从(x,y)点开始，宽为width、高为height的图片区域的数据，该方法返回的是一个CanvasPixelArray对象，该对象具有width、height、data等属性。data属性为一个数组，该数组每4个元素对应一个像素点。 let imageDate = ctx.getImageData(0, 0, canvas.width, canvas.height); //记录整个canvas所有像素点 let allPX = imageDate.width * imageDate.height; //记录刮开的像素点个数 let iNum = 0; //通过for循环判断刮开了多少个像素点 for (let i = 0; i &lt; allPX; i++) &#123; if (imageDate.data[i * 4 + 3] == 0) &#123; iNum++; &#125; &#125; //当刮开的像素点数量大于等于总像素点数量的40%时隐藏canvas if (iNum &gt;= allPX / 2.5) &#123; canvas.style.display = "none"; &#125;&#125;, false); 四、结语具体怎么移植到vue里我就不做介绍啦~感谢大家看到这里，有什么我讲不清楚的麻烦在评论区给我留个言！！！ 最后再次感谢大家！]]></content>
@@ -63,8 +77,8 @@
         <category>blog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>github</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -84,7 +98,7 @@
   <entry>
     <title><![CDATA[git学习]]></title>
     <url>%2F2019%2F02%2F26%2FGitStudy%2Fgit-study-1%2F</url>
-    <content type="text"><![CDATA[使用git过程中的经验整理 因为最近在用git添加多个sshkey的时候报错了，使用ssh -V github.com的时候提示key不存在，在不存在的网站(google.com)中找到了解决方案，然后想了想，决定开一个blog专门记录使用git的时候出现的问题以及对应的解决方案。 一、添加多个sshkey 首先执行命令生成第一个git仓库的sshkey 1ssh-keygen -t rsa -C &quot;first-email@address.com&quot; 再次执行命令生成第二个git仓库的sshkey 1ssh-keygen -t rsa -C &quot;secound-email@address.com&quot; 注意，在生成不同的sshkey的时候记得给每个sshkey起不同的名字。 修改git配置 这一个操作有两个方法，一个是最常用的方法，也是随便搜索都能找到的方法： 方法1：在~/.ssh目录下新建一个config文件 1234567891011# first-websiteHost gitlab.com HostName gitlab.com PreferredAuthentications publickey IdentityFile ~/.ssh/gitlab_id_rsa# second-websiteHost github.com HostName github.com PreferredAuthentications publickey IdentityFile ~/.ssh/github_id_rsa 方法2：该方法是否规范我不太确定，但是这么做是修改了git里ssh的配置 修改git目录下的git/etc/ssh/ssh_config文件，在文件的最下面添加连接仓库用到的sshkey文件 12345678......# Added by git-extra# 在下方添加我们需要通过ssh连接的git仓库对应的sshkey文件IdentityFile ~/.ssh/github_id_rsaIdentityFile ~/.ssh/gitlab_id_rsaCiphers +aes128-cbc,3des-cbc,aes256-cbc,aes192-cbc 然后重启git 之后再连接不同的git仓库就能顺利的连接了]]></content>
+    <content type="text"><![CDATA[使用git过程中的经验整理 因为最近在用git添加多个sshkey的时候报错了，使用ssh -V github.com的时候提示key不存在，在不存在的网站(google.com)中找到了解决方案，然后想了想，决定开一个blog专门记录使用git的时候出现的问题以及对应的解决方案。 一、添加多个sshkey 首先执行命令生成第一个git仓库的sshkey 1ssh-keygen -t rsa -C &quot;first-email@address.com&quot; 再次执行命令生成第二个git仓库的sshkey 1ssh-keygen -t rsa -C &quot;secound-email@address.com&quot; 注意，在生成不同的sshkey的时候记得给每个sshkey起不同的名字。 修改git配置 这一个操作有两个方法，一个是最常用的方法，也是随便搜索都能找到的方法： 方法1：在~/.ssh目录下新建一个config文件 1234567891011# first-websiteHost gitlab.com HostName gitlab.com PreferredAuthentications publickey IdentityFile ~/.ssh/gitlab_id_rsa# second-websiteHost github.com HostName github.com PreferredAuthentications publickey IdentityFile ~/.ssh/github_id_rsa 方法2：该方法是否规范我不太确定，但是这么做是修改了git里ssh的配置 修改git目录下的git/etc/ssh/ssh_config文件，在文件的最下面添加连接仓库用到的sshkey文件 12345678......# Added by git-extra# 在下方添加我们需要通过ssh连接的git仓库对应的sshkey文件IdentityFile ~/.ssh/github_id_rsaIdentityFile ~/.ssh/gitlab_id_rsaCiphers +aes128-cbc,3des-cbc,aes256-cbc,aes192-cbc 然后重启git 之后再连接不同的git仓库就能顺利的连接了 二、将Beyond Compare 4设置为difftool下载bc4之后在任意地方打开git bash然后输入以下命令： 12345678git config --global diff.tool bc4git config --global difftool.prompt falsegit config --global difftool.bc4.cmd '"C:\Program Files\Beyond Compare 4\BCompare.exe" "$LOCAL" "$REMOTE"'git config --global merge.tool bc4git config --global mergetool.prompt falsegit config --global mergetool.bc4.cmd '"C:\Program Files\Beyond Compare 4\BCompare.exe" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'git config --global mergetool.bc4.trustexitcode true]]></content>
       <categories>
         <category>git学习</category>
       </categories>

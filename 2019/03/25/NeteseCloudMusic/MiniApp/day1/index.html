@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="git,">
+  <meta name="keywords" content="vue,网易云音乐,electron-vue,个人项目,">
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="这是我在使用git中碰到的一些问题以及对应的解决方法……">
-<meta name="keywords" content="git">
+<meta name="description" content="精简版网易云音乐项目demo开发记录">
+<meta name="keywords" content="vue,网易云音乐,electron-vue,个人项目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git学习">
-<meta property="og:url" content="http://huangjunjia.github.io/2019/02/26/GitStudy/git-study-1/index.html">
+<meta property="og:title" content="mini版网易云音乐for electron-vue开发日志1">
+<meta property="og:url" content="http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/index.html">
 <meta property="og:site_name" content="HuangJunjia&#39;s Blog">
-<meta property="og:description" content="这是我在使用git中碰到的一些问题以及对应的解决方法……">
+<meta property="og:description" content="精简版网易云音乐项目demo开发记录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-27T07:43:13.751Z">
+<meta property="og:updated_time" content="2019-03-25T07:06:26.940Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git学习">
-<meta name="twitter:description" content="这是我在使用git中碰到的一些问题以及对应的解决方法……">
+<meta name="twitter:title" content="mini版网易云音乐for electron-vue开发日志1">
+<meta name="twitter:description" content="精简版网易云音乐项目demo开发记录">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://huangjunjia.github.io/2019/02/26/GitStudy/git-study-1/">
+  <link rel="canonical" href="http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/">
 
 
 
 
 
-  <title>git学习 | HuangJunjia's Blog</title>
+  <title>mini版网易云音乐for electron-vue开发日志1 | HuangJunjia's Blog</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangjunjia.github.io/2019/02/26/GitStudy/git-study-1/">
+    <link itemprop="mainEntityOfPage" href="http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HuangJunjia">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git学习</h1>
+          <h1 class="post-title" itemprop="name headline">mini版网易云音乐for electron-vue开发日志1</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T15:22:39+08:00">
-                2019-02-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T14:54:28+08:00">
+                2019-03-25
               </time>
             
 
@@ -351,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git学习/" itemprop="url" rel="index">
-                    <span itemprop="name">git学习</span>
+                  <a href="/categories/个人项目/" itemprop="url" rel="index">
+                    <span itemprop="name">个人项目</span>
                   </a>
                 </span>
 
@@ -375,7 +375,7 @@
 
           
               <div class="post-description">
-                  这是我在使用git中碰到的一些问题以及对应的解决方法……
+                  精简版网易云音乐项目demo开发记录
               </div>
           
 
@@ -392,39 +392,11 @@
       
 
       
-        <h4 id="使用git过程中的经验整理"><a href="#使用git过程中的经验整理" class="headerlink" title="使用git过程中的经验整理"></a>使用git过程中的经验整理</h4><blockquote>
-<p>因为最近在用git添加多个sshkey的时候报错了，使用ssh -V github.com的时候提示key不存在，在不存在的网站(google.com)中找到了解决方案，然后想了想，决定开一个blog专门记录使用git的时候出现的问题以及对应的解决方案。</p>
-</blockquote>
-<h5 id="一、添加多个sshkey"><a href="#一、添加多个sshkey" class="headerlink" title="一、添加多个sshkey"></a>一、添加多个sshkey</h5><ol>
-<li><p>首先执行命令生成第一个git仓库的sshkey</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;first-email@address.com&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再次执行命令生成第二个git仓库的sshkey</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;secound-email@address.com&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>注意，在生成不同的sshkey的时候记得给每个sshkey起不同的名字。</p>
-</blockquote>
-<ol start="3">
-<li><p>修改git配置</p>
-<p>这一个操作有两个方法，一个是最常用的方法，也是随便搜索都能找到的方法：</p>
-<ol>
-<li><p>方法1：在<code>~/.ssh</code>目录下新建一个config文件</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># first-website</span><br><span class="line">Host gitlab.com</span><br><span class="line">    HostName gitlab.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/gitlab_id_rsa</span><br><span class="line"></span><br><span class="line"># second-website</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/github_id_rsa</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方法2：该方法是否规范我不太确定，但是这么做是修改了git里ssh的配置</p>
-<p>修改git目录下的<code>git/etc/ssh/ssh_config</code>文件，在文件的最下面添加连接仓库用到的sshkey文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"># Added by git-extra</span><br><span class="line"></span><br><span class="line"># 在下方添加我们需要通过ssh连接的git仓库对应的sshkey文件</span><br><span class="line">IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line">IdentityFile ~/.ssh/gitlab_id_rsa</span><br><span class="line"></span><br><span class="line">Ciphers +aes128-cbc,3des-cbc,aes256-cbc,aes192-cbc</span><br></pre></td></tr></table></figure>
-<p>然后重启git</p>
-</li>
-</ol>
-</li>
-<li><p>之后再连接不同的git仓库就能顺利的连接了</p>
-</li>
-</ol>
-<h5 id="二、将Beyond-Compare-4设置为difftool"><a href="#二、将Beyond-Compare-4设置为difftool" class="headerlink" title="二、将Beyond Compare 4设置为difftool"></a>二、将Beyond Compare 4设置为difftool</h5><p>下载bc4之后在任意地方打开<code>git bash</code>然后输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global diff.tool bc4</span><br><span class="line">git config --global difftool.prompt <span class="literal">false</span></span><br><span class="line">git config --global difftool.bc4.cmd <span class="string">'"C:\Program Files\Beyond Compare 4\BCompare.exe" "$LOCAL" "$REMOTE"'</span></span><br><span class="line"></span><br><span class="line">git config --global merge.tool bc4</span><br><span class="line">git config --global mergetool.prompt <span class="literal">false</span></span><br><span class="line">git config --global mergetool.bc4.cmd <span class="string">'"C:\Program Files\Beyond Compare 4\BCompare.exe" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'</span></span><br><span class="line">git config --global mergetool.bc4.trustexitcode <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+        <h3 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h3><p>依旧是这个问题，太头疼了的一个问题，因为API服务器是用的<a href="https://github.com/Binaryify" target="_blank" rel="noopener">@Binaryify</a>的<a href="https://github.com/Binaryify/NeteaseCloudMusicApi" target="_blank" rel="noopener">GitHub项目</a>，我放到我的阿里云服务器上直接用<code>pm2</code>启动后就不管了，然后尝试了在<code>google</code>和<code>baidu</code>中搜到的方案(也许真正的方案我没搜到)，发现都没办法，然后干脆给<code>axios</code>设置的一个<code>baseURL</code>（不是因为我懒），毕竟我的所有请求都发向我的服务器地址，所以也算是一个解决方案吧</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = <span class="string">"服务器地址"</span>;</span><br><span class="line">Vue.http = Vue.prototype.$http = axios</span><br></pre></td></tr></table></figure>
+<h3 id="为什么本地测试的界面比build之后的界面要小很多"><a href="#为什么本地测试的界面比build之后的界面要小很多" class="headerlink" title="为什么本地测试的界面比build之后的界面要小很多"></a>为什么本地测试的界面比build之后的界面要小很多</h3><p>最开始一直在本地开发以及测试，然后发现我build然后运行后，整个界面，包括字体、宽高等等的样式全部变大了，尝试在<code>src/main/index.js</code>中修改视窗比例后发现无效，在某不存在的网站<code>google</code>上搜到了一个解决方案，这个方案来自<a href="http://bigxiangbaobao.com" target="_blank" rel="noopener">这是地址</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> devInnerHeight = <span class="number">1080.0</span> <span class="comment">// 开发时的InnerHeight</span></span><br><span class="line"><span class="keyword">let</span> devDevicePixelRatio = <span class="number">1.0</span><span class="comment">// 开发时的devicepixelratio</span></span><br><span class="line"><span class="keyword">let</span> devScaleFactor = <span class="number">1</span> <span class="comment">// 开发时的ScaleFactor</span></span><br><span class="line"><span class="keyword">let</span> scaleFactor = <span class="built_in">require</span>(<span class="string">'electron'</span>).screen.getPrimaryDisplay().scaleFactor</span><br><span class="line"><span class="keyword">let</span> zoomFactor = (<span class="built_in">window</span>.innerHeight / devInnerHeight) * (<span class="built_in">window</span>.devicePixelRatio / devDevicePixelRatio) * (devScaleFactor / scaleFactor)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'electron'</span>).webFrame.setZoomFactor(zoomFactor)</span><br></pre></td></tr></table></figure>
+<p>这里修改需要在<code>src/renderer/main.js</code>内添加</p>
 
       
     </div>
@@ -442,7 +414,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/网易云音乐/" rel="tag"># 网易云音乐</a>
+          
+            <a href="/tags/electron-vue/" rel="tag"># electron-vue</a>
+          
+            <a href="/tags/个人项目/" rel="tag"># 个人项目</a>
           
         </div>
       
@@ -455,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/components/LotteryComponent/Lottery/" rel="next" title="vue大转盘组件">
-                <i class="fa fa-chevron-left"></i> vue大转盘组件
+              <a href="/2019/03/06/components/ScratchComponent/Scratch/" rel="next" title="vue刮刮乐组件">
+                <i class="fa fa-chevron-left"></i> vue刮刮乐组件
               </a>
             
           </div>
@@ -464,10 +442,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/26/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/" rel="prev" title="网易云音乐 for electron开发日记">
-                网易云音乐 for electron开发日记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -606,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用git过程中的经验整理"><span class="nav-text">使用git过程中的经验整理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、添加多个sshkey"><span class="nav-text">一、添加多个sshkey</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、将Beyond-Compare-4设置为difftool"><span class="nav-text">二、将Beyond Compare 4设置为difftool</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域问题"><span class="nav-text">跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么本地测试的界面比build之后的界面要小很多"><span class="nav-text">为什么本地测试的界面比build之后的界面要小很多</span></a></li></ol></div>
             
 
           </div>
@@ -806,7 +780,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitment({
-            id: '1551165759000', 
+            id: '1553496868000', 
             owner: 'HuangJunjia',
             repo: 'HuangJunjia.github.io',
             

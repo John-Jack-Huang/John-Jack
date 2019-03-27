@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://huangjunjia.github.io/2019/02/26/GitStudy/git-study-1/</loc>
+    
+    <lastmod>2019-03-27T07:43:13.751Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/</loc>
+    
+    <lastmod>2019-03-25T07:06:26.940Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://huangjunjia.github.io/2019/03/04/JavaScript/VUE/VueStudy/</loc>
     
     <lastmod>2019-03-15T06:22:34.215Z</lastmod>
@@ -68,13 +82,6 @@
     <loc>http://huangjunjia.github.io/about/index.html</loc>
     
     <lastmod>2019-02-26T07:34:03.890Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://huangjunjia.github.io/2019/02/26/GitStudy/git-study-1/</loc>
-    
-    <lastmod>2019-02-26T07:31:19.208Z</lastmod>
     
   </url>
   
