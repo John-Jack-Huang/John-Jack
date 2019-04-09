@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://huangjunjia.github.io/2019/04/09/components/ProgressBarComponent/ProgreeBar/</loc>
+    <lastmod>2019-04-09</lastmod>
+  </url>  <url>
+    <loc>http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/</loc>
+    <lastmod>2019-04-09</lastmod>
+  </url>  <url>
     <loc>http://huangjunjia.github.io/2019/04/09/components/IndicatorComponent/indicator/</loc>
     <lastmod>2019-04-09</lastmod>
   </url>  <url>
@@ -9,9 +15,6 @@
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/02/26/GitStudy/git-study-1/</loc>
     <lastmod>2019-03-27</lastmod>
-  </url>  <url>
-    <loc>http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/</loc>
-    <lastmod>2019-03-25</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/03/04/JavaScript/VUE/VueStudy/</loc>
     <lastmod>2019-03-15</lastmod>

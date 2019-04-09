@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="网易云音乐,electron-vue,vue,个人项目,">
+  <meta name="keywords" content="vue,网易云音乐,electron-vue,个人项目,">
 
 
 
@@ -84,14 +84,14 @@
 
 
 <meta name="description" content="精简版网易云音乐项目demo开发记录">
-<meta name="keywords" content="网易云音乐,electron-vue,vue,个人项目">
+<meta name="keywords" content="vue,网易云音乐,electron-vue,个人项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mini版网易云音乐for electron-vue开发日志1">
 <meta property="og:url" content="http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/index.html">
 <meta property="og:site_name" content="HuangJunjia&#39;s Blog">
 <meta property="og:description" content="精简版网易云音乐项目demo开发记录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T07:06:26.940Z">
+<meta property="og:updated_time" content="2019-04-09T02:34:35.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mini版网易云音乐for electron-vue开发日志1">
 <meta name="twitter:description" content="精简版网易云音乐项目demo开发记录">
@@ -394,7 +394,7 @@
       
         <h3 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h3><p>依旧是这个问题，太头疼了的一个问题，因为API服务器是用的<a href="https://github.com/Binaryify" target="_blank" rel="noopener">@Binaryify</a>的<a href="https://github.com/Binaryify/NeteaseCloudMusicApi" target="_blank" rel="noopener">GitHub项目</a>，我放到我的阿里云服务器上直接用<code>pm2</code>启动后就不管了，然后尝试了在<code>google</code>和<code>baidu</code>中搜到的方案(也许真正的方案我没搜到)，发现都没办法，然后干脆给<code>axios</code>设置的一个<code>baseURL</code>（不是因为我懒），毕竟我的所有请求都发向我的服务器地址，所以也算是一个解决方案吧</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = <span class="string">"服务器地址"</span>;</span><br><span class="line">Vue.http = Vue.prototype.$http = axios</span><br></pre></td></tr></table></figure>
-<h3 id="为什么本地测试的界面比build之后的界面要小很多"><a href="#为什么本地测试的界面比build之后的界面要小很多" class="headerlink" title="为什么本地测试的界面比build之后的界面要小很多"></a>为什么本地测试的界面比build之后的界面要小很多</h3><p>最开始一直在本地开发以及测试，然后发现我build然后运行后，整个界面，包括字体、宽高等等的样式全部变大了，尝试在<code>src/main/index.js</code>中修改视窗比例后发现无效，在某不存在的网站<code>google</code>上搜到了一个解决方案，这个方案来自<a href="http://bigxiangbaobao.com" target="_blank" rel="noopener">这是地址</a></p>
+<h3 id="解决本地测试的界面比build之后的界面较小"><a href="#解决本地测试的界面比build之后的界面较小" class="headerlink" title="解决本地测试的界面比build之后的界面较小"></a>解决本地测试的界面比build之后的界面较小</h3><p>最开始一直在本地开发以及测试，然后发现我build然后运行后，整个界面，包括字体、宽高等等的样式全部变大了，尝试在<code>src/main/index.js</code>中修改视窗比例后发现无效，在某不存在的网站<code>google</code>上搜到了一个解决方案，这个方案来自<a href="http://bigxiangbaobao.com" target="_blank" rel="noopener">这是地址</a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> devInnerHeight = <span class="number">1080.0</span> <span class="comment">// 开发时的InnerHeight</span></span><br><span class="line"><span class="keyword">let</span> devDevicePixelRatio = <span class="number">1.0</span><span class="comment">// 开发时的devicepixelratio</span></span><br><span class="line"><span class="keyword">let</span> devScaleFactor = <span class="number">1</span> <span class="comment">// 开发时的ScaleFactor</span></span><br><span class="line"><span class="keyword">let</span> scaleFactor = <span class="built_in">require</span>(<span class="string">'electron'</span>).screen.getPrimaryDisplay().scaleFactor</span><br><span class="line"><span class="keyword">let</span> zoomFactor = (<span class="built_in">window</span>.innerHeight / devInnerHeight) * (<span class="built_in">window</span>.devicePixelRatio / devDevicePixelRatio) * (devScaleFactor / scaleFactor)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'electron'</span>).webFrame.setZoomFactor(zoomFactor)</span><br></pre></td></tr></table></figure>
 <p>这里修改需要在<code>src/renderer/main.js</code>内添加</p>
 
@@ -414,11 +414,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
             <a href="/tags/网易云音乐/" rel="tag"># 网易云音乐</a>
           
             <a href="/tags/electron-vue/" rel="tag"># electron-vue</a>
-          
-            <a href="/tags/vue/" rel="tag"># vue</a>
           
             <a href="/tags/个人项目/" rel="tag"># 个人项目</a>
           
@@ -529,7 +529,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -584,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域问题"><span class="nav-text">跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么本地测试的界面比build之后的界面要小很多"><span class="nav-text">为什么本地测试的界面比build之后的界面要小很多</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域问题"><span class="nav-text">跨域问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决本地测试的界面比build之后的界面较小"><span class="nav-text">解决本地测试的界面比build之后的界面较小</span></a></li></ol></div>
             
 
           </div>
