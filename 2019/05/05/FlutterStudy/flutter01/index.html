@@ -83,22 +83,22 @@
 
 
 
-<meta name="description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅">
+<meta name="description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅，在文本中我会讲解Flutter环境的配置">
 <meta name="keywords" content="Flutter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flutter学习日志01">
 <meta property="og:url" content="http://huangjunjia.github.io/2019/05/05/FlutterStudy/flutter01/index.html">
 <meta property="og:site_name" content="HuangJunjia&#39;s Blog">
-<meta property="og:description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅">
+<meta property="og:description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅，在文本中我会讲解Flutter环境的配置">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/05/FlutterStudy/flutter01/0.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/05/FlutterStudy/flutter01/1.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/05/FlutterStudy/flutter01/2.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/05/FlutterStudy/flutter01/3.png">
-<meta property="og:updated_time" content="2019-05-05T16:28:44.242Z">
+<meta property="og:updated_time" content="2019-05-06T11:17:12.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flutter学习日志01">
-<meta name="twitter:description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅">
+<meta name="twitter:description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅，在文本中我会讲解Flutter环境的配置">
 <meta name="twitter:image" content="http://huangjunjia.github.io/2019/05/05/FlutterStudy/flutter01/0.png">
 
 
@@ -380,7 +380,7 @@
 
           
               <div class="post-description">
-                  这是新的一个篇章，从本文开始我的Flutter学习之旅
+                  这是新的一个篇章，从本文开始我的Flutter学习之旅，在文本中我会讲解Flutter环境的配置
               </div>
           
 
@@ -463,6 +463,14 @@
 <p>如果没有红色的<code>x</code>到此就完成<code>Flutter</code>的安装了</p>
 <hr>
 <p>今天的内容暂时到此为止，明天将更新解决<code>flutter doctor</code>的部分错误以及安装的坑</p>
+<hr>
+<h5 id="2019年5月6日补充的内容"><a href="#2019年5月6日补充的内容" class="headerlink" title="2019年5月6日补充的内容"></a>2019年5月6日补充的内容</h5><p>响了一下，大家可能最常见的也是碰到最多的问题应该是在第一次运行<code>Flutter</code>的时候卡在<code>Resovle...</code>阶段，然后等了很长一段时间之后控制台报错，其中在日志中有一句信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ProcessException: Process <span class="string">"你的flutter工程路径\flutter_app\android\gradlew.bat"</span> exited abnormally:</span><br></pre></td></tr></table></figure>
+<p>这个报错的原因是因为天朝的墙太厚了，看不到拿不到墙外面的东西，解决这个问题请参考本文中<code>配置Flutter SDK</code>下的第3点中的配置信息，即在环境变量中新建两个变量<code>PUB_HOSTED_URL</code>和<code>FLUTTER_STORAGE_BASE_URL</code>，<strong>对大陆的用户来说，这步非常重要，如果未配置则会影响之后的开发</strong></p>
+<ul>
+<li><code>PUB_HOSTED_URL</code> = <code>https://pub.flutter-io.cn</code></li>
+<li><code>FLUTTER_STORAGE_BASE_URL</code> =  <code>https://storage.flutter-io.cn</code></li>
+</ul>
 
       
     </div>
@@ -502,6 +510,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/06/FlutterStudy/flutter02/" rel="prev" title="Flutter学习日志02">
+                Flutter学习日志02 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -585,7 +597,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -640,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Flutter"><span class="nav-text">什么是Flutter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows下配置Flutter环境"><span class="nav-text">windows下配置Flutter环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-安装Git-for-Windows"><span class="nav-text">1. 安装Git for Windows</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-配置Flutter-SDK"><span class="nav-text">2. 配置Flutter SDK</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-运行flutter-doctor"><span class="nav-text">3. 运行flutter doctor</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Flutter"><span class="nav-text">什么是Flutter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows下配置Flutter环境"><span class="nav-text">windows下配置Flutter环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-安装Git-for-Windows"><span class="nav-text">1. 安装Git for Windows</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-配置Flutter-SDK"><span class="nav-text">2. 配置Flutter SDK</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-运行flutter-doctor"><span class="nav-text">3. 运行flutter doctor</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2019年5月6日补充的内容"><span class="nav-text">2019年5月6日补充的内容</span></a></li></ol></li></ol></div>
             
 
           </div>
