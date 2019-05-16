@@ -91,10 +91,13 @@
 <meta property="og:site_name" content="HuangJunjia&#39;s Blog">
 <meta property="og:description" content="之前写hexo系列的时候总觉得是不是少了什么东西没写，然后忘了……嗯，没错，忘了，今天朋友看了我的文章我才突然想起来，我忘了写如何新建一篇文章了，现在补上……">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-16T16:06:19.445Z">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/blog/write-blog/0.png">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/blog/write-blog/1.png">
+<meta property="og:updated_time" content="2019-05-16T16:24:29.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&lt;补&gt;如何使用hexo命令行写一篇文章">
 <meta name="twitter:description" content="之前写hexo系列的时候总觉得是不是少了什么东西没写，然后忘了……嗯，没错，忘了，今天朋友看了我的文章我才突然想起来，我忘了写如何新建一篇文章了，现在补上……">
+<meta name="twitter:image" content="http://huangjunjia.github.io/2019/05/16/blog/write-blog/0.png">
 
 
 
@@ -458,6 +461,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h3 id="通过hexo-n生成的md文件如何设置标签、分类、简介"><a href="#通过hexo-n生成的md文件如何设置标签、分类、简介" class="headerlink" title="通过hexo n生成的md文件如何设置标签、分类、简介"></a>通过hexo n生成的md文件如何设置标签、分类、简介</h3><p>一般通过<code>hexo n</code>命令生成的md文件中，在文件的最顶部会有三个属性<code>title</code>、<code>date</code>、<code>tags</code>，这三个分别对应<code>文章标题</code>，<code>文章创建日期</code>，<code>文章标签</code>。如果你在之前的<code>Hexo</code>设置中开启了<code>分类</code>即<code>categories</code>，则可以在虚线之上新起一行，添加一个属性<code>categories</code>，这个时候你的这篇文章就有了分类。如果添加<code>description</code>则可以为文章添加简介，如果没有简介则在<code>Hexo</code>主页中会显示文章的全文，添加简介后只显示简介。其中，仅有<code>tags</code>和<code>categories</code>属性可以使用<code>[]</code>方括号，其他属性均不允许使用，否则会在部署的时候报错。</p>
+<p><code>tags</code>和<code>categories</code>的用法一致，需要使用<code>[]</code>将标签名、分类名包裹起来，其中通过<code>,</code>（英文的逗号）隔开。</p>
+<p>其他属性直接输入字符串就好了。</p>
+<p><img src="/2019/05/16/blog/write-blog/0.png" width="600"></p>
+<hr>
+<p>然后在本文的最后，推荐一款<code>markdown</code>编辑器<code>Typora</code>。<a href="https://typora.io/" target="_blank" rel="noopener">官网and下载地址</a></p>
+<p><img src="/2019/05/16/blog/write-blog/1.png" width="600"></p>
 
       
     </div>
@@ -641,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的Hexo指令"><span class="nav-text">常用的Hexo指令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的Hexo指令"><span class="nav-text">常用的Hexo指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过hexo-n生成的md文件如何设置标签、分类、简介"><span class="nav-text">通过hexo n生成的md文件如何设置标签、分类、简介</span></a></li></ol></div>
             
 
           </div>
