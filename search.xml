@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[flutter学习日志03]]></title>
+    <url>%2F2019%2F05%2F13%2FFlutterStudy%2Fflutter03%2F</url>
+    <content type="text"><![CDATA[Flutter的布局方式在Flutter中，所有布局都是基于Widdget进行的，因为对于Flutter而言，任何东西都是一个Widdget，不论是布局模型、图像、文本等等，还是我们看不到的东西比如行row、列column等等都是一个Widdget。 如果我们想构建一个复杂的Widdget，可以通过多个不同的简单Widdget组合而成，]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Flutter学习日志02]]></title>
     <url>%2F2019%2F05%2F06%2FFlutterStudy%2Fflutter02%2F</url>
     <content type="text"><![CDATA[在本文中我仅介绍Android Studio创建一个Flutter应用，不考虑其他IDE Flutter应用初体验 创建应用 点击File -&gt; New -&gt; New Flutter Project新建一个flutter应用 选择Flutter Application创建一个Flutter应用程序 修改Project name来设置你自己的工程的名称、SDK路径、工程路径以及简介 修改Company domain的名称 点击Finish完成创建 运行Flutter程序 添加并启动一个AVD虚拟机 点击右上角小手机按钮打开虚拟机管理界面，或者点击菜单栏中的Tools -&gt; AVD Manager打开虚拟机管理界面 在虚拟机管理界面中点击Create Virtual Device...按钮添加一个虚拟机 选择并创建一台设备，点击Next进入下一步 选择一个系统镜像，我这里是因为之前提前下载好了Android 9.+的系统镜像，如果要选择其他的镜像请根据个人需求选择下载，点击Next进入下一步 在虚拟机配置中开启硬件加速Hardware-GLES 2.0，点击Show Advanced Settings显示高级设置，在Emulated Performance中的Graphics选项中选择Hardware-GLES 2.0，点击Finish完成虚拟机的创建 在虚拟机列表中点击Actions标签下的三角形图标启动虚拟机，到此虚拟机创建以及启动的教程结束。 启动Flutter应用 在AVD虚拟机已经启动的情况下，点击Android Studio右上角的绿色三角形运行Flutter程序，或者点击菜单栏中的Run -&gt; Run &#39;main.dart&#39;运行Flutter程序 当AVD虚拟机中出现上图所示程序界面的时候，说明我们的Flutter程序能够正常运行 编写我们的Hello World!程序 在第二步中我们创建的Flutter程序中不难看出，flutter_app/lib/main.dart是Flutter程序的主文件即入口文件，我们替换该文件中的所有代码，替换成以下代码（我们先不讲Dart语法以及Flutter API）： 1234567891011121314151617181920212223242526import &apos;package:flutter/material.dart&apos;;//主函数（入口函数），下面我会简单说说Dart的函数void main() =&gt; runApp(MyApp());// 声明MyApp类class MyApp extends StatelessWidget &#123; //重写build方法 @override Widget build(BuildContext context) &#123; //返回一个Material风格的组件 return MaterialApp( title: &apos;Welcome to Flutteraa&apos;, home: Scaffold( //创建一个Bar，并添加文本 appBar: AppBar( title: Text(&apos;Welcome to Flutter&apos;), ), //在主体的中间区域，添加一个hello world 的文本 body: Center( child: Text(&apos;Hello World&apos;), ), ), ); &#125;&#125; 当我们保存修改的时候，模拟器中的程序界面应该已经变成了Hello World，如下图：]]></content>
@@ -54,9 +65,9 @@
         <category>个人项目</category>
       </categories>
       <tags>
+        <tag>vue</tag>
         <tag>网易云音乐</tag>
         <tag>electron-vue</tag>
-        <tag>vue</tag>
         <tag>个人项目</tag>
       </tags>
   </entry>
@@ -117,7 +128,7 @@
   <entry>
     <title><![CDATA[github+hexo搭建一个Blog]]></title>
     <url>%2F2019%2F02%2F26%2Fblog%2Fblog-build%2F</url>
-    <content type="text"><![CDATA[今天突发奇想，自己搭建一个blog就可以不用github那个markdown来撰写我的博文了，然后去百度搜了一下，网友推荐了使用Hexo（当然还有其他）搭建一个自己的blog。 一、前期准备 一个GitHub帐号 一个名称为YourName.github.io的仓库 安装Git 安装Node.js 安装Hexo 前4步操作直接百度就好，我在此主要讲建立Blog的主要过程以及一些需要注意的问题和坑。因为我个人使用的是Windows的系统，在此不讲解其他系统的搭建过程，但是大同小异，可以参考。 二、安装Hexo 在确保你安装好Git的前提下，在终端中输入： 1npm install hexo-cli -g 然后在终端中输入： 1hexo v 若出现下图则说明你已经成功安装Hexo。 创建一个目录，作为你的blog目录。 进入该目录。 初始化该目录，初始化的过程可能会稍微花费一些时间； 1hexo init 当终端中显示INFO Start blogging with Hexo!的时候说明初始化成功了。 安装Hexo运行所需要的相关组件及依赖； 1npm install //或者 yarn 我个人推荐使用后者 如果终端中未出现ERROR等错误提示，WARN警告我们直接忽略就好。 在终端中输入： 1hexo s 启动服务器， 如此显示说明Hexo已经启动了，我们就可以进入有下划线的网址http://localhost:4000浏览我们的博客长啥样了。 到此为止，Hexo的安装已经结束了。 三、将我们的Hexo博客部署在我们的Username.github.io仓库中 新建一个仓库，仓库名必须为xxx.github.io，一般xxx与你GitHub昵称相同。 因为Hexo部署需要通过GitHub的ssh连接，所以需要配置一个ssh key，配置方法百度即可。 安装hexo-deployer-git插件（非常重要） 1npm install hexo-deployer-git //或者 yarn add hexo-deployer-git 修改Hexo的配置文件_config.yml，连接你的GitHub仓库， type设置为git，repo填写你的GitHub仓库地址，branck填写master 在终端中按住ctrl + c结束正在运行的Hexo服务，然后输入： 1hexo g //生成部署的文件，在public目录下 接着输入： 1hexo d //将生成的部署文件上传到我们之前新建的GitHub仓库中 因为打印的日志有点多，我就截取主要部分。 出现最后一行说明我们已经成功的将我们的Hexoblog部署到我们的GitHub仓库中了。 这时我们可以打开GitHub进入我们的仓库查看上传的文件有哪些。 到这里就差最后一步了！ 修改GitHub仓库设置，在GitHub Pages中修改选中的分支，将分支修改为master branch，等待页面刷新之后，我们就可以拿到https://xxx.github.io这个网址了~（这里因为我之前有建立过blog，所以就直接拿我之前blog的设置来做例子了~） 这个时候，我们打开网址，即https://xxx.github.io，就可以看到我们的Hexo博客了！记得xxx是你当初设置的~记得替换。（可能在设置完GitHub Pages之后需要等个几分钟才能看到我们的页面） 四、安装过程中可能会碰到的问题 问题1：4000端口被占用，无法启动服务 解决方法：改变服务器的端口号 1hexo s -p 端口号 // 端口号可以是未被占用的 五、后记可能会有一些小细节没处理好，如果按照我的方法出现部署失败的，可以在评论里留言，我一定会认真回复的。 下一篇文章我将会讲解Hexo的一些设置以及NexT主题的相关设置，增加评论功能等。]]></content>
+    <content type="text"><![CDATA[今天突发奇想，自己搭建一个blog就可以不用github那个markdown来撰写我的博文了，然后去百度搜了一下，网友推荐了使用Hexo（当然还有其他）搭建一个自己的blog。 一、前期准备 一个GitHub帐号 一个名称为YourName.github.io的仓库 安装Git 安装Node.js 安装Hexo 前4步操作直接百度就好，我在此主要讲建立Blog的主要过程以及一些需要注意的问题和坑。因为我个人使用的是Windows的系统，在此不讲解其他系统的搭建过程，但是大同小异，可以参考。 二、安装Hexo 在确保你安装好Node的前提下，并且能在终端中输入npm -v出现版本信息之后，在终端中输入： 1npm install hexo-cli -g 然后在终端中输入： 1hexo v 若出现下图则说明你已经成功安装Hexo。 创建一个目录，作为你的blog目录。 进入该目录。 初始化该目录，初始化的过程可能会稍微花费一些时间； 1hexo init 当终端中显示INFO Start blogging with Hexo!的时候说明初始化成功了。 安装Hexo运行所需要的相关组件及依赖； 1npm install //或者 yarn 我个人推荐使用后者 如果终端中未出现ERROR等错误提示，WARN警告我们直接忽略就好。 在终端中输入： 1hexo s 启动服务器， 如此显示说明Hexo已经启动了，我们就可以进入有下划线的网址http://localhost:4000浏览我们的博客长啥样了。 到此为止，Hexo的安装已经结束了。 三、将我们的Hexo博客部署在我们的Username.github.io仓库中 新建一个仓库，仓库名必须为xxx.github.io，一般xxx与你GitHub昵称相同。 因为Hexo部署需要通过GitHub的ssh连接，所以需要配置一个ssh key，配置方法百度即可。 安装hexo-deployer-git插件（非常重要） 1npm install hexo-deployer-git //或者 yarn add hexo-deployer-git 修改Hexo的配置文件_config.yml，连接你的GitHub仓库， type设置为git，repo填写你的GitHub仓库地址，branck填写master 在终端中按住ctrl + c结束正在运行的Hexo服务，然后输入： 1hexo g //生成部署的文件，在public目录下 接着输入： 1hexo d //将生成的部署文件上传到我们之前新建的GitHub仓库中 因为打印的日志有点多，我就截取主要部分。 出现最后一行说明我们已经成功的将我们的Hexoblog部署到我们的GitHub仓库中了。 这时我们可以打开GitHub进入我们的仓库查看上传的文件有哪些。 到这里就差最后一步了！ 修改GitHub仓库设置，在GitHub Pages中修改选中的分支，将分支修改为master branch，等待页面刷新之后，我们就可以拿到https://xxx.github.io这个网址了~（这里因为我之前有建立过blog，所以就直接拿我之前blog的设置来做例子了~） 这个时候，我们打开网址，即https://xxx.github.io，就可以看到我们的Hexo博客了！记得xxx是你当初设置的~记得替换。（可能在设置完GitHub Pages之后需要等个几分钟才能看到我们的页面） 四、安装过程中可能会碰到的问题 问题1：4000端口被占用，无法启动服务 解决方法：改变服务器的端口号 1hexo s -p 端口号 // 端口号可以是未被占用的 五、后记可能会有一些小细节没处理好，如果按照我的方法出现部署失败的，可以在评论里留言，我一定会认真回复的。 下一篇文章我将会讲解Hexo的一些设置以及NexT主题的相关设置，增加评论功能等。]]></content>
       <categories>
         <category>Hexo</category>
         <category>blog</category>
@@ -135,9 +146,9 @@
         <category>个人项目</category>
       </categories>
       <tags>
+        <tag>vue</tag>
         <tag>网易云音乐</tag>
         <tag>electron-vue</tag>
-        <tag>vue</tag>
         <tag>个人项目</tag>
       </tags>
   </entry>

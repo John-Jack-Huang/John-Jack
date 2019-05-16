@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://huangjunjia.github.io/2019/02/26/blog/blog-build/</loc>
+    <lastmod>2019-05-16</lastmod>
+  </url>  <url>
+    <loc>http://huangjunjia.github.io/2019/05/13/FlutterStudy/flutter03/</loc>
+    <lastmod>2019-05-13</lastmod>
+  </url>  <url>
     <loc>http://huangjunjia.github.io/2019/05/06/FlutterStudy/flutter02/</loc>
     <lastmod>2019-05-06</lastmod>
   </url>  <url>
@@ -35,9 +41,6 @@
     <lastmod>2019-02-27</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/</loc>
-    <lastmod>2019-02-27</lastmod>
-  </url>  <url>
-    <loc>http://huangjunjia.github.io/2019/02/26/blog/blog-build/</loc>
     <lastmod>2019-02-27</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/02/26/components/LotteryComponent/Lottery/</loc>
