@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何使用hexo命令行写一篇文章]]></title>
+    <url>%2F2019%2F05%2F16%2Fblog%2Fwrite-blog%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Hexo</category>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[flutter学习日志03]]></title>
     <url>%2F2019%2F05%2F13%2FFlutterStudy%2Fflutter03%2F</url>
     <content type="text"><![CDATA[Flutter的布局方式在Flutter中，所有布局都是基于Widdget进行的，因为对于Flutter而言，任何东西都是一个Widdget，不论是布局模型、图像、文本等等，还是我们看不到的东西比如行row、列column等等都是一个Widdget。 如果我们想构建一个复杂的Widdget，可以通过多个不同的简单Widdget组合而成，]]></content>
