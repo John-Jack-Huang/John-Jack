@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/0.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/1.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/0.gif">
-<meta property="og:updated_time" content="2019-05-17T14:50:38.998Z">
+<meta property="og:updated_time" content="2019-05-17T15:15:18.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于CSS自定义属性var()的那些事儿~">
 <meta name="twitter:description" content="今天写Vue的项目的时候突然想到Sass、Less和Stylus都有自己的全局变量，然后搜了一下发现CSS也有自己的变量，不过准确的叫法应该叫做“CSS自定义属性”。而且当我在Vue项目中使用时，发现有一个小坑，在此记录一下……">
@@ -442,6 +442,16 @@
 <h3 id="var-函数以及CSS自定义属性在实际使用中的作用"><a href="#var-函数以及CSS自定义属性在实际使用中的作用" class="headerlink" title="var()函数以及CSS自定义属性在实际使用中的作用"></a>var()函数以及CSS自定义属性在实际使用中的作用</h3><p>通过<code>var()函数</code>和<code>CSS自定义属性</code>，我们可以实现在不使用<code>Less</code>、<code>Sass</code>或<code>Stylus</code>的情况下，修改项目的主题等操作。</p>
 <p><img src="/2019/05/16/CSSStudy/CSSVariable/0.gif" width="700"></p>
 <p>通过<code>JavaScript</code>修改右侧<code>.ui-dialogbox</code>选择器的<code>border</code>颜色达到切换主题的效果。</p>
+<h3 id="在Vue工程中使用CSS自定义属性和var-函数的坑"><a href="#在Vue工程中使用CSS自定义属性和var-函数的坑" class="headerlink" title="在Vue工程中使用CSS自定义属性和var()函数的坑"></a>在Vue工程中使用CSS自定义属性和var()函数的坑</h3><p>通过上文我们可以知道<code>:root</code>作用域中声明的CSS自定义属性可以在任何选择器中使用，但是在Vue的单页应用中我们得到的效果却跟你所期望的不一样，甚至是无效的。</p>
+<p>这是因为如何你在Vue的单文件中，即后缀为<code>.vue</code>的文件的<code>style</code>标签中使用了<code>scoped</code>，那么Vue会对在该<code>style</code>标签中的所有选择器添加一个前缀，大概如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[data-v-1374924e]</span><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个时候，<code>:root</code>作用域就不是根作用域，所以你在该组件中看到的CSS自定义属性的值是无效的或者是错误的。</p>
+<p>那么我们该如何解决呢，有三种方法：</p>
+<ol>
+<li>在Vue的<code>index.html</code>文件中添加<code>style</code>标签，在该标签内的<code>:root</code>作用域中声明全局CSS自定义属性。</li>
+<li>编写一个外部<code>CSS</code>文件，在该文件中的<code>:root</code>作用域中声明全局CSS自定义属性。</li>
+<li>在该组件的最外层元素的作用域即选择器中声明CSS自定义属性，这样该组件的所有子元素都可以使用。</li>
+</ol>
 
       
     </div>
@@ -481,6 +491,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/17/JavaScript/canvas/CanvasGetMainColor/" rel="prev" title="如何使用canvas获取一张图片的主色调">
+                如何使用canvas获取一张图片的主色调 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -564,7 +578,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +589,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -586,7 +600,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -619,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何声明一个CSS自定义属性？"><span class="nav-text">如何声明一个CSS自定义属性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CSS自定义属性中我们可以存入哪些值？"><span class="nav-text">在CSS自定义属性中我们可以存入哪些值？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var-函数"><span class="nav-text">var()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css自定义属性的作用域"><span class="nav-text">css自定义属性的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过JavaScript操作CSS自定义属性"><span class="nav-text">通过JavaScript操作CSS自定义属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var-函数以及CSS自定义属性在实际使用中的作用"><span class="nav-text">var()函数以及CSS自定义属性在实际使用中的作用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何声明一个CSS自定义属性？"><span class="nav-text">如何声明一个CSS自定义属性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CSS自定义属性中我们可以存入哪些值？"><span class="nav-text">在CSS自定义属性中我们可以存入哪些值？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var-函数"><span class="nav-text">var()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css自定义属性的作用域"><span class="nav-text">css自定义属性的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过JavaScript操作CSS自定义属性"><span class="nav-text">通过JavaScript操作CSS自定义属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var-函数以及CSS自定义属性在实际使用中的作用"><span class="nav-text">var()函数以及CSS自定义属性在实际使用中的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Vue工程中使用CSS自定义属性和var-函数的坑"><span class="nav-text">在Vue工程中使用CSS自定义属性和var()函数的坑</span></a></li></ol></div>
             
 
           </div>
