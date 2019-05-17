@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/</loc>
+    
+    <lastmod>2019-05-17T00:00:12.630Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://huangjunjia.github.io/2019/05/16/blog/write-blog/</loc>
     
     <lastmod>2019-05-16T16:24:29.391Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://huangjunjia.github.io/about/index.html</loc>
     
     <lastmod>2019-05-16T14:46:54.206Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/</loc>
-    
-    <lastmod>2019-05-16T14:42:16.167Z</lastmod>
     
   </url>
   
