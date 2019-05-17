@@ -94,7 +94,8 @@
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/3.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/0.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/1.png">
-<meta property="og:updated_time" content="2019-05-17T14:39:54.557Z">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/0.gif">
+<meta property="og:updated_time" content="2019-05-17T14:48:51.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于CSS自定义属性var()的那些事儿~">
 <meta name="twitter:description" content="今天写Vue的项目的时候突然想到Sass、Less和Stylus都有自己的全局变量，然后搜了一下发现CSS也有自己的变量，不过准确的叫法应该叫做“CSS自定义属性”。而且当我在Vue项目中使用时，发现有一个小坑，在此记录一下……">
@@ -438,6 +439,9 @@
 <p>这就使得我们可以向CSS自定义属性中添加任何值：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.style.setProperty(<span class="string">'--color'</span>, <span class="string">'hello world'</span>);</span><br></pre></td></tr></table></figure>
 <p>上面的代码在CSS中是无效的值，但是我们可以通过<code>JavaScript</code>进行读写操作，也就是说CSS自定义属性能够实现<code>JavaScript</code>和<code>CSS</code>之间的通信。</p>
+<h3 id="var-函数以及CSS自定义属性在实际使用中的作用"><a href="#var-函数以及CSS自定义属性在实际使用中的作用" class="headerlink" title="var()函数以及CSS自定义属性在实际使用中的作用"></a>var()函数以及CSS自定义属性在实际使用中的作用</h3><p>通过<code>var()函数</code>和<code>CSS自定义属性</code>，我们可以实现在不使用<code>Less</code>、<code>Sass</code>或<code>Stylus</code>的情况下，修改项目的主题等操作。</p>
+<p><img src="/2019/05/16/CSSStudy/CSSVariable/0.gif" width="700"></p>
+<p>通过<code>JavaScript</code>修改右侧<code>.ui-dialogbox</code>选择器的<code>border</code>颜色达到切换主题的效果。</p>
 
       
     </div>
@@ -615,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何声明一个CSS自定义属性？"><span class="nav-text">如何声明一个CSS自定义属性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CSS自定义属性中我们可以存入哪些值？"><span class="nav-text">在CSS自定义属性中我们可以存入哪些值？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var-函数"><span class="nav-text">var()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css自定义属性的作用域"><span class="nav-text">css自定义属性的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过JavaScript操作CSS自定义属性"><span class="nav-text">通过JavaScript操作CSS自定义属性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何声明一个CSS自定义属性？"><span class="nav-text">如何声明一个CSS自定义属性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CSS自定义属性中我们可以存入哪些值？"><span class="nav-text">在CSS自定义属性中我们可以存入哪些值？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var-函数"><span class="nav-text">var()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css自定义属性的作用域"><span class="nav-text">css自定义属性的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过JavaScript操作CSS自定义属性"><span class="nav-text">通过JavaScript操作CSS自定义属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var-函数以及CSS自定义属性在实际使用中的作用"><span class="nav-text">var()函数以及CSS自定义属性在实际使用中的作用</span></a></li></ol></div>
             
 
           </div>
