@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/0.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/1.png">
 <meta property="og:image" content="http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/0.gif">
-<meta property="og:updated_time" content="2019-05-17T15:15:18.055Z">
+<meta property="og:updated_time" content="2019-05-17T15:37:18.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于CSS自定义属性var()的那些事儿~">
 <meta name="twitter:description" content="今天写Vue的项目的时候突然想到Sass、Less和Stylus都有自己的全局变量，然后搜了一下发现CSS也有自己的变量，不过准确的叫法应该叫做“CSS自定义属性”。而且当我在Vue项目中使用时，发现有一个小坑，在此记录一下……">
@@ -333,7 +333,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T22:39:04+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T20:28:04+08:00">
                 2019-05-16
               </time>
             
@@ -410,7 +410,6 @@
 <p><strong>需要注意的是，css的自定义属性名对大小写敏感，也就是说<code>--color</code>和<code>--Color</code>是两个自定义属性。</strong></p>
 <h3 id="在CSS自定义属性中我们可以存入哪些值？"><a href="#在CSS自定义属性中我们可以存入哪些值？" class="headerlink" title="在CSS自定义属性中我们可以存入哪些值？"></a>在CSS自定义属性中我们可以存入哪些值？</h3><p>在CSS中的各种值都可以放入CSS自定义属性中，如：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attribute">--color</span>: <span class="number">#ff0000</span>;</span><br><span class="line">    <span class="attribute">--rgba-color</span>: <span class="built_in">rgba</span>(255, 0, 0);</span><br><span class="line">    <span class="attribute">--px</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">--border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">--padding</span>: <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">--line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">    <span class="attribute">--durations</span>: .<span class="number">5s</span>;</span><br><span class="line">    <span class="attribute">--text</span>: <span class="string">"text"</span>;</span><br><span class="line">    <span class="attribute">--calc-top</span>: <span class="built_in">calc</span>(100vh - 44px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如你所见，CSS中的各种值都是可以放入CSS自定义属性中的。</p>
 <h3 id="var-函数"><a href="#var-函数" class="headerlink" title="var()函数"></a>var()函数</h3><p>通过<code>var()</code>函数读取一个CSS自定义属性，然后代替元素中的任何属性中的值的任何部分，但是<code>var()</code>函数不能作为一个属性名、选择器或者其他除了属性值之外的值，例子：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">--hello-world</span>: <span class="string">"margin-top"</span>;</span><br><span class="line">    var(--hello-world): 1px solid red;/*错误，不能用做属性名*/</span><br><span class="line">    </span><br><span class="line">    <span class="selector-tag">--margin-top</span>: 20;</span><br><span class="line">    <span class="selector-tag">margin-top</span>: <span class="selector-tag">var</span>(<span class="selector-tag">--margin-top</span>)<span class="selector-tag">px</span>;<span class="comment">/*错误，如何自定义属性值是数值，不能与数值单位直接连用*/</span></span><br><span class="line">    <span class="selector-tag">margin-top</span>: <span class="selector-tag">calc</span>(<span class="selector-tag">var</span>(<span class="selector-tag">--margin-top</span>) * 1<span class="selector-tag">px</span>);<span class="comment">/*正确，若为数值，需要通过calc()函数连接使用*/</span></span><br><span class="line">    </span><br><span class="line">    <span class="selector-tag">--padding-top</span>: "20<span class="selector-tag">px</span>";</span><br><span class="line">    <span class="selector-tag">padding-top</span>: <span class="selector-tag">var</span>(<span class="selector-tag">--padding-top</span>);<span class="comment">/*错误，若带有单位，则不能写为字符串*/</span></span><br><span class="line">    <span class="selector-tag">--padding-bottom</span>: 20<span class="selector-tag">px</span>;</span><br><span class="line">    <span class="selector-tag">padding-bottom</span>: <span class="selector-tag">var</span>(<span class="selector-tag">--padding-bottom</span>);<span class="comment">/*正确*/</span></span><br><span class="line">    </span><br><span class="line">    <span class="selector-tag">--border-color</span>: <span class="selector-id">#ff0000</span>;</span><br><span class="line">    <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">var</span>(<span class="selector-tag">--border-color</span>);<span class="comment">/*正确，替换属性值的部分的值的时候中间不能加入其他符号，需要用空格进行分隔*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">var</span>(<span class="selector-tag">--hello-world</span>) &#123;</span><br><span class="line">    <span class="comment">/*错误，不能用做选择器*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>var()</code>函数有一个方法：</p>
@@ -443,7 +442,7 @@
 <p><img src="/2019/05/16/CSSStudy/CSSVariable/0.gif" width="700"></p>
 <p>通过<code>JavaScript</code>修改右侧<code>.ui-dialogbox</code>选择器的<code>border</code>颜色达到切换主题的效果。</p>
 <h3 id="在Vue工程中使用CSS自定义属性和var-函数的坑"><a href="#在Vue工程中使用CSS自定义属性和var-函数的坑" class="headerlink" title="在Vue工程中使用CSS自定义属性和var()函数的坑"></a>在Vue工程中使用CSS自定义属性和var()函数的坑</h3><p>通过上文我们可以知道<code>:root</code>作用域中声明的CSS自定义属性可以在任何选择器中使用，但是在Vue的单页应用中我们得到的效果却跟你所期望的不一样，甚至是无效的。</p>
-<p>这是因为如何你在Vue的单文件中，即后缀为<code>.vue</code>的文件的<code>style</code>标签中使用了<code>scoped</code>，那么Vue会对在该<code>style</code>标签中的所有选择器添加一个前缀，大概如下：</p>
+<p>这是因为如果你在Vue的单文件中，即后缀为<code>.vue</code>的文件的<code>style</code>标签中使用了<code>scoped</code>，那么Vue会对在该<code>style</code>标签中的所有选择器添加一个前缀，大概如下：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[data-v-1374924e]</span><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个时候，<code>:root</code>作用域就不是根作用域，所以你在该组件中看到的CSS自定义属性的值是无效的或者是错误的。</p>
 <p>那么我们该如何解决呢，有三种方法：</p>
@@ -833,7 +832,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitment({
-            id: '1558017544000', 
+            id: '1558009684000', 
             owner: 'HuangJunjia',
             repo: 'HuangJunjia.github.io',
             
