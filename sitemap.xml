@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/</loc>
+    <loc>http://huangjunjia.github.io/2019/05/17/JavaScript/canvas/CanvasGetMainColor/</loc>
     
-    <lastmod>2019-05-17T15:37:18.131Z</lastmod>
+    <lastmod>2019-05-18T09:12:09.044Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://huangjunjia.github.io/2019/05/17/JavaScript/canvas/CanvasGetMainColor/</loc>
+    <loc>http://huangjunjia.github.io/about/index.html</loc>
     
-    <lastmod>2019-05-17T15:05:25.357Z</lastmod>
+    <lastmod>2019-05-18T02:38:18.595Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/</loc>
+    
+    <lastmod>2019-05-17T15:37:18.131Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>http://huangjunjia.github.io/2019/05/16/blog/write-blog/</loc>
     
     <lastmod>2019-05-16T16:24:29.391Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://huangjunjia.github.io/about/index.html</loc>
-    
-    <lastmod>2019-05-16T14:46:54.206Z</lastmod>
     
   </url>
   
