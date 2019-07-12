@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="Qn73NynG-U6BF-NhAm5vST0lNIrOHMGP6XG6Kiz7CXo">
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="gWpv5BHQrJ">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,网易云音乐,electron-vue,个人项目,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这是一个使用electron-vue以及网易云音乐API制作的pc端第三方网易云音乐客户端，在这篇博文里主要记录了开发中碰到的问题以及学到的新知识……">
+<meta name="keywords" content="vue,网易云音乐,electron-vue,个人项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网易云音乐 for electron开发日记">
+<meta property="og:url" content="http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/index.html">
+<meta property="og:site_name" content="HuangJunjia&#39;s Blog">
+<meta property="og:description" content="这是一个使用electron-vue以及网易云音乐API制作的pc端第三方网易云音乐客户端，在这篇博文里主要记录了开发中碰到的问题以及学到的新知识……">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/1.png">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/2.png">
+<meta property="og:image" content="http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/3.png">
+<meta property="og:updated_time" content="2019-02-28T02:50:37.783Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网易云音乐 for electron开发日记">
+<meta name="twitter:description" content="这是一个使用electron-vue以及网易云音乐API制作的pc端第三方网易云音乐客户端，在这篇博文里主要记录了开发中碰到的问题以及学到的新知识……">
+<meta name="twitter:image" content="http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/">
+
+
+
+
+
+  <title>网易云音乐 for electron开发日记 | HuangJunjia's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HuangJunjia's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">用于记录我学习的进度小地方~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuangJunjia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangJunjia's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网易云音乐 for electron开发日记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T15:26:31+08:00">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人项目/" itemprop="url" rel="index">
+                    <span itemprop="name">个人项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  这是一个使用electron-vue以及网易云音乐API制作的pc端第三方网易云音乐客户端，在这篇博文里主要记录了开发中碰到的问题以及学到的新知识……
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>简介：使用electron-vue模版开发，非常感谢<a href="https://github.com/SimulatedGREG" target="_blank" rel="noopener">@Greg Holguin</a>大大的electron-vue项目，以及使用的网易云音乐nodejs版的api的作者<a href="https://github.com/Binaryify" target="_blank" rel="noopener">@Binaryify</a>大大，他们俩是促使我尝试制作这个项目的原因。</p>
+</blockquote>
+<hr>
+<h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/HuangJunjia/3rdNeteaseCloudDemo" target="_blank" rel="noopener">网易云音乐 for electron</a></p>
+<hr>
+<h3 id="开发进度"><a href="#开发进度" class="headerlink" title="开发进度"></a>开发进度</h3><blockquote>
+<ol>
+<li>header部分<ul>
+<li>logo区域：<ul>
+<li>已完成<ul>
+<li>icon的设置，title的设置</li>
+</ul>
+</li>
+<li>未完成<ul>
+<li>无</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>search区域：<ul>
+<li>已完成：<ul>
+<li>样式设计和编写</li>
+<li>input事件触发搜索结果</li>
+</ul>
+</li>
+<li>未完成：<ul>
+<li>点击搜索图标跳转至搜索结果页面未制作</li>
+<li>点击input触发的推荐结果跳转至对应的结果页未制作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>setting区域：<ul>
+<li>已完成：<ul>
+<li>完成图标的制作</li>
+</ul>
+</li>
+<li>未完成：<ul>
+<li>对应功能未实现</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>视窗操作区域：<ul>
+<li>已完成：<ul>
+<li>图标按钮</li>
+<li>当前窗口最小化、最大化/还原、关闭操作</li>
+</ul>
+</li>
+<li>未完成：<ul>
+<li>无</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="项目开发流程"><a href="#项目开发流程" class="headerlink" title="项目开发流程"></a>项目开发流程</h3><h5 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h5><ol>
+<li><p>node.js  <a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">官网</a></p>
+</li>
+<li><p>vue  <a href="https://cn.vuejs.org/" target="_blank" rel="noopener">官网</a></p>
+</li>
+<li><p>electron-vue模版  <a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">项目地址</a></p>
+<blockquote>
+<p>该项目的目的，是为了要避免使用 vue 手动建立起 electron 应用程序。electron-vue 充分利用 <code>vue-cli</code> 作为脚手架工具，加上拥有 <code>vue-loader</code> 的 <code>webpack</code>、<code>electron-packager</code> 或是 <code>electron-builder</code>，以及一些最常用的插件，如<code>vue-router</code>、<code>vuex</code> 等等。</p>
+</blockquote>
+<p>以上为官网介绍。</p>
+<p>安装方式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 安装 vue-cli 和 脚手架样板代码</span><br><span class="line">npm install -g vue-cli</span><br><span class="line">vue init simulatedgreg/electron-vue my-project</span><br><span class="line"></span><br><span class="line"># 安装依赖并运行你的程序</span><br><span class="line">cd my-project</span><br><span class="line">yarn # 或者 npm install</span><br><span class="line">yarn run dev # 或者 npm run dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拉取网易云音乐 Node.js API service的github项目  <a href="https://github.com/Binaryify/NeteaseCloudMusicApi" target="_blank" rel="noopener">项目地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Binaryify/NeteaseCloudMusicApi.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h5 id="二、将网易云音乐API整合到electron-vue项目中并能够顺利启动服务"><a href="#二、将网易云音乐API整合到electron-vue项目中并能够顺利启动服务" class="headerlink" title="二、将网易云音乐API整合到electron-vue项目中并能够顺利启动服务"></a>二、将网易云音乐API整合到electron-vue项目中并能够顺利启动服务</h5><p>该项目的网易云API是已经封装好的，但是需要单独的启动node.js，端口为3000，这样会显得比较麻烦，直接使用一个node.js的配置文件就足够了。</p>
+<blockquote>
+<p>ps：因为该项目目前还在保持更新，若大家怕在后续的更新中需要重新修改配置，推荐大家直接在网易云API中直接启动node服务，我这里只是提供了我需要的一种方式。</p>
+</blockquote>
+<p>过程：</p>
+<ol>
+<li><p>拷贝网易云音乐API目录下的./module和./util目录，复制到electron-vue项目根目录下，此时目录结构应该如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">electron-vue</span><br><span class="line">	|-- .electron-vue</span><br><span class="line">	|-- build</span><br><span class="line">	|-- dist</span><br><span class="line">	|-- node_modules</span><br><span class="line">	|-- module</span><br><span class="line">	|-- src</span><br><span class="line">	|-- static</span><br><span class="line">	|-- util</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将网易云音乐API目录下app.js中的代码复制到electron-vue目录下的.electron-vue/dev-runner.js中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)</span><br><span class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'../util/request'</span>)</span><br><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'apicache'</span>).middleware</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"># 以下为网易云API的node服务代码</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"></span><br><span class="line"><span class="comment">// CORS</span></span><br><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(req.path !== <span class="string">'/'</span> &amp;&amp; !req.path.includes(<span class="string">'.'</span>))&#123;</span><br><span class="line">    res.header(&#123;</span><br><span class="line">      <span class="string">'Access-Control-Allow-Credentials'</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">'Access-Control-Allow-Origin'</span>: req.headers.origin || <span class="string">'*'</span>,</span><br><span class="line">      <span class="string">'Access-Control-Allow-Headers'</span>: <span class="string">'X-Requested-With'</span>,</span><br><span class="line">      <span class="string">'Access-Control-Allow-Methods'</span>: <span class="string">'PUT,POST,GET,DELETE,OPTIONS'</span>,</span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'application/json; charset=utf-8'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// cookie parser</span></span><br><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  req.cookies = &#123;&#125;, (req.headers.cookie || <span class="string">''</span>).split(<span class="regexp">/\s*;\s*/</span>).forEach(<span class="function"><span class="params">pair</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> crack = pair.indexOf(<span class="string">'='</span>)</span><br><span class="line">    <span class="keyword">if</span>(crack &lt; <span class="number">1</span> || crack == pair.length - <span class="number">1</span>) <span class="keyword">return</span></span><br><span class="line">    req.cookies[<span class="built_in">decodeURIComponent</span>(pair.slice(<span class="number">0</span>, crack)).trim()] = <span class="built_in">decodeURIComponent</span>(pair.slice(crack + <span class="number">1</span>)).trim()</span><br><span class="line">  &#125;)</span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// body parser</span></span><br><span class="line">app.use(bodyParser.json())</span><br><span class="line">app.use(bodyParser.urlencoded(&#123;<span class="attr">extended</span>: <span class="literal">false</span>&#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// cache</span></span><br><span class="line">app.use(cache(<span class="string">'2 minutes'</span>, (<span class="function">(<span class="params">req, res</span>) =&gt;</span> res.statusCode === <span class="number">200</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment">// static</span></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment">// router</span></span><br><span class="line"><span class="keyword">const</span> special = &#123;</span><br><span class="line">  <span class="string">'daily_signin.js'</span>: <span class="string">'/daily_signin'</span>,</span><br><span class="line">  <span class="string">'fm_trash.js'</span>: <span class="string">'/fm_trash'</span>,</span><br><span class="line">  <span class="string">'personal_fm.js'</span>: <span class="string">'/personal_fm'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fs.readdirSync(path.join(__dirname, <span class="string">'../module'</span>)).reverse().forEach(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(!(<span class="regexp">/\.js$/i</span>.test(file))) <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">let</span> route = (file <span class="keyword">in</span> special) ? special[file] : <span class="string">'/'</span> + file.replace(<span class="regexp">/\.js$/i</span>, <span class="string">''</span>).replace(<span class="regexp">/_/g</span>, <span class="string">'/'</span>)</span><br><span class="line">  <span class="keyword">let</span> question = <span class="built_in">require</span>(path.join(__dirname, <span class="string">'../module'</span>, file))</span><br><span class="line"></span><br><span class="line">  app.use(route, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> query = <span class="built_in">Object</span>.assign(&#123;&#125;, req.query, req.body, &#123;<span class="attr">cookie</span>: req.cookies&#125;)</span><br><span class="line">    question(query, request)</span><br><span class="line">      .then(<span class="function"><span class="params">answer</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'[OK]'</span>, <span class="built_in">decodeURIComponent</span>(req.originalUrl))</span><br><span class="line">        res.append(<span class="string">'Set-Cookie'</span>, answer.cookie)</span><br><span class="line">        res.status(answer.status).send(answer.body)</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">answer</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(answer)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'[ERR]'</span>, <span class="built_in">decodeURIComponent</span>(req.originalUrl))</span><br><span class="line">        <span class="keyword">if</span>(answer.body.code ==<span class="string">'301'</span>) answer.body.msg = <span class="string">'需要登录'</span></span><br><span class="line">        res.append(<span class="string">'Set-Cookie'</span>, answer.cookie)</span><br><span class="line">        res.status(answer.status).send(answer.body)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span> <span class="comment">//在这里修改端口号</span></span><br><span class="line"></span><br><span class="line">app.server = app.listen(port, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`server running @ http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = app</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p>20190201更新：</p>
+<pre><code>我将网易云音乐API node服务放在了我的服务器上，所以我这里直接使用我的服务器地址。
+
+&lt;font color=#ff0000&gt;推荐为网易云API单独启动一个node服务，然后通过pm2进行管理。&lt;/font&gt;
+</code></pre><hr>
+<ol start="3">
+<li><p>启动electron-vue的node服务</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn dev //或者 npm run dev</span><br></pre></td></tr></table></figure>
+<p> 此时控制台应打印出</p>
+<p> <img src="/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/1.png" alt="控制台打印内容"></p>
+<p> 稍等一会你会看到一个electron应用自动启动，说明node服务正式配置完毕。</p>
+</li>
+</ol>
+<p>四、electron服务配置反向代理</p>
+<ol>
+<li><p>因为在electron-vue中需要用到网易云音乐API服务器的接口，但是网易云音乐API服务器端口为3000（或许你自定了一个端口），如果直接调用，会报跨域的错误，提示404</p>
+<p><img src="/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/2.png" alt="报错图片"></p>
+<p>此时需要在electron-vue的.electron-vue/dev-runner.js中的electron服务中配置一个代理：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*--------------- electron-vue的node服务 -----------------*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startRenderer</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        ......</span><br><span class="line">        <span class="keyword">const</span> server = <span class="keyword">new</span> WebpackDevServer(</span><br><span class="line">          compiler,</span><br><span class="line">          &#123;</span><br><span class="line">            contentBase: path.join(__dirname, <span class="string">'../'</span>),</span><br><span class="line">            quiet: <span class="literal">true</span>,</span><br><span class="line">            before (app, ctx) &#123;</span><br><span class="line">              app.use(hotMiddleware)</span><br><span class="line">              ctx.middleware.waitUntilValid(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                resolve()</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">/*---- 以下是添加的代理设置 ----*/</span></span><br><span class="line">            proxy: &#123;</span><br><span class="line">              <span class="string">"/api"</span>: &#123;</span><br><span class="line">                target: <span class="string">'http://localhost:3000'</span>, <span class="comment">//指向网易云音乐API nodejs 服务器地址</span></span><br><span class="line">                <span class="comment">//也可以使用你自己的服务器地址，但是方法同理</span></span><br><span class="line">                pathRewrite: &#123;<span class="string">'^/api'</span> : <span class="string">''</span>&#125;,</span><br><span class="line">                changeOrigin: <span class="literal">true</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">/*---- 代理设置到此结束 ----*/</span></span><br><span class="line">          &#125;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">｝----</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h5 id="三、遇到的问题及解决方案"><a href="#三、遇到的问题及解决方案" class="headerlink" title="三、遇到的问题及解决方案"></a>三、遇到的问题及解决方案</h5><ol>
+<li><p>问题：在使用<code>tray</code>设置托盘的时候，在<code>dev</code>环境下能正常运行，但是打包成<code>.exe</code>文件之后提示icon错误。</p>
+<p><img src="/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/3.png" alt="图源自stack overflow"></p>
+<p>原因：需要引入<code>electron</code>中的<code>nativeImage</code>模块，将icon转换成原生的图片。</p>
+<p>解决方案：</p>
+<ul>
+<li><p>原代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tray = <span class="keyword">new</span> Tray(<span class="string">`file://<span class="subst">$&#123;__dirname&#125;</span>/build/icon.ico`</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改之后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; Tray, nativeImage &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> iconPath = path.join(__dirname, <span class="string">'build/icon.ico'</span>);</span><br><span class="line">mainWindow.tray = <span class="keyword">new</span> Tray(nativeImage.createFromPath(iconPath));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>问题：在electron-vue中的页面里使用vuex报错，提示<code>undefind</code>。</p>
+<p>原因：在electron-vue中为了实现多窗口之间能共享vuex的数据，引入了一个<code>vuex-electron</code>的插件，修改了vuex的配置方式。</p>
+<p>解决方案：</p>
+<pre><code>按照`vuex-electron`的方式设置vuex，在`src/renderer/store/modules`中新建一个`NewStore.js`，并在该文件内编写`state`、`mutations`、`actions`
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = &#123;</span><br><span class="line">  <span class="comment">// your state code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mutations = &#123;</span><br><span class="line">  <span class="comment">// your mutations code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> actions = &#123;</span><br><span class="line">  <span class="comment">// your actions code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  state,</span><br><span class="line">  mutations,</span><br><span class="line">  actions</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>问题：跨域问题如何解决</p>
+<p>原因：electron默认使用同源策略，故若请求了跨域接口，则会报错</p>
+<p>解决方案：</p>
+<ol>
+<li><p>首先在<code>.electron-vue/dev-runner.js</code>文件中的<code>startRenderer</code>函数内添加<code>proxy</code>属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startRenderer</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  .....</span><br><span class="line">    <span class="keyword">const</span> server = <span class="keyword">new</span> WebpackDevServer(</span><br><span class="line">      compiler,</span><br><span class="line">      &#123;</span><br><span class="line">        contentBase: path.join(__dirname, <span class="string">'../'</span>),</span><br><span class="line">        quiet: <span class="literal">true</span>,</span><br><span class="line">        before (app, ctx) &#123;</span><br><span class="line">          app.use(hotMiddleware)</span><br><span class="line">          ctx.middleware.waitUntilValid(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            resolve()</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 增加以下代码</span></span><br><span class="line">        proxy: &#123;</span><br><span class="line">          <span class="string">'/api'</span>: &#123;</span><br><span class="line">            target: <span class="string">'http://localhost:port'</span>,</span><br><span class="line">            secure: <span class="literal">false</span>,</span><br><span class="line">            changeOrigin: <span class="literal">true</span>,</span><br><span class="line">            pathRewrite: &#123; <span class="string">'^/api'</span>: <span class="string">''</span> &#125;,</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    server.listen(<span class="number">9080</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其次在<code>src/main/index.js</code>文件中的<code>new BrowserWindow()</code>方法中添加一个字段</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新建一个win窗口</span></span><br><span class="line">  mainWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">    ......</span><br><span class="line">    webPreferences: &#123;</span><br><span class="line">      webSecurity: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/网易云音乐/" rel="tag"># 网易云音乐</a>
+          
+            <a href="/tags/electron-vue/" rel="tag"># electron-vue</a>
+          
+            <a href="/tags/个人项目/" rel="tag"># 个人项目</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/26/GitStudy/git-study-1/" rel="next" title="git学习">
+                <i class="fa fa-chevron-left"></i> git学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/26/blog/blog-build/" rel="prev" title="github+hexo搭建一个Blog">
+                github+hexo搭建一个Blog <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">HuangJunjia</p>
+              <p class="site-description motion-element" itemprop="description">少年辛苦终身事，莫向光阴惰寸功。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目地址"><span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发进度"><span class="nav-text">开发进度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目开发流程"><span class="nav-text">项目开发流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、前期准备"><span class="nav-text">一、前期准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、将网易云音乐API整合到electron-vue项目中并能够顺利启动服务"><span class="nav-text">二、将网易云音乐API整合到electron-vue项目中并能够顺利启动服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、遇到的问题及解决方案"><span class="nav-text">三、遇到的问题及解决方案</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HuangJunjia</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://www.wenjunjiang.win/css/gitment.css">
+		<script src="https://www.wenjunjiang.win/js/gitment.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitment({
+            id: '1551165991000', 
+            owner: 'HuangJunjia',
+            repo: 'HuangJunjia.github.io',
+            
+            oauth: {
+            
+            
+                client_secret: 'f4ab0d27c92519e345c6128b5cd0c0031c67f2e3',
+            
+                client_id: 'a065b84bad06e66a5231'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://huangjunjia.github.io/2019/07/12/JavaScript/Nodejs/Shell/node-shell/</loc>
+    <lastmod>2019-07-12</lastmod>
+  </url>  <url>
+    <loc>http://huangjunjia.github.io/2019/02/27/blog/blog-set/</loc>
+    <lastmod>2019-06-20</lastmod>
+  </url>  <url>
+    <loc>http://huangjunjia.github.io/2019/06/11/JavaScript/VUE/vee-validate-study/</loc>
+    <lastmod>2019-06-17</lastmod>
+  </url>  <url>
+    <loc>http://huangjunjia.github.io/2019/05/13/FlutterStudy/flutter03/</loc>
+    <lastmod>2019-05-21</lastmod>
+  </url>  <url>
     <loc>http://huangjunjia.github.io/2019/05/17/JavaScript/canvas/CanvasGetMainColor/</loc>
-    <lastmod>2019-05-18</lastmod>
+    <lastmod>2019-05-20</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/05/16/CSSStudy/CSSVariable/</loc>
     <lastmod>2019-05-17</lastmod>
@@ -28,16 +40,13 @@
     <loc>http://huangjunjia.github.io/2019/02/26/blog/blog-build/</loc>
     <lastmod>2019-05-16</lastmod>
   </url>  <url>
-    <loc>http://huangjunjia.github.io/2019/05/13/FlutterStudy/flutter03/</loc>
-    <lastmod>2019-05-13</lastmod>
-  </url>  <url>
     <loc>http://huangjunjia.github.io/2019/05/06/FlutterStudy/flutter02/</loc>
     <lastmod>2019-05-06</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/05/05/FlutterStudy/flutter01/</loc>
     <lastmod>2019-05-06</lastmod>
   </url>  <url>
-    <loc>http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/</loc>
+    <loc>http://huangjunjia.github.io/2019/03/25/Electron/NeteseCloudMusic/MiniApp/day1/</loc>
     <lastmod>2019-04-09</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/04/09/components/IndicatorComponent/indicator/</loc>
@@ -49,11 +58,8 @@
     <loc>http://huangjunjia.github.io/2019/03/01/JavaScript/Study/Study/</loc>
     <lastmod>2019-03-15</lastmod>
   </url>  <url>
-    <loc>http://huangjunjia.github.io/2019/02/26/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/</loc>
+    <loc>http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/</loc>
     <lastmod>2019-02-28</lastmod>
-  </url>  <url>
-    <loc>http://huangjunjia.github.io/2019/02/27/blog/blog-set/</loc>
-    <lastmod>2019-02-27</lastmod>
   </url>  <url>
     <loc>http://huangjunjia.github.io/2019/02/27/blog/blog-theme-set/</loc>
     <lastmod>2019-02-27</lastmod>

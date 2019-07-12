@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅，本文简单介绍Flutter的布局">
+<meta name="description" content="本文用于记录Flutter的Widget用法">
 <meta name="keywords" content="Flutter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flutter学习日志03">
+<meta property="og:title" content="flutter学习日志之Widget学习">
 <meta property="og:url" content="http://huangjunjia.github.io/2019/05/13/FlutterStudy/flutter03/index.html">
 <meta property="og:site_name" content="HuangJunjia&#39;s Blog">
-<meta property="og:description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅，本文简单介绍Flutter的布局">
+<meta property="og:description" content="本文用于记录Flutter的Widget用法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-13T12:09:04.013Z">
+<meta property="og:updated_time" content="2019-05-21T13:23:30.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flutter学习日志03">
-<meta name="twitter:description" content="这是新的一个篇章，从本文开始我的Flutter学习之旅，本文简单介绍Flutter的布局">
+<meta name="twitter:title" content="flutter学习日志之Widget学习">
+<meta name="twitter:description" content="本文用于记录Flutter的Widget用法">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>flutter学习日志03 | HuangJunjia's Blog</title>
+  <title>flutter学习日志之Widget学习 | HuangJunjia's Blog</title>
   
 
 
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">flutter学习日志03</h1>
+          <h1 class="post-title" itemprop="name headline">flutter学习日志之Widget学习</h1>
         
 
         <div class="post-meta">
@@ -375,7 +375,7 @@
 
           
               <div class="post-description">
-                  这是新的一个篇章，从本文开始我的Flutter学习之旅，本文简单介绍Flutter的布局
+                  本文用于记录Flutter的Widget用法
               </div>
           
 
@@ -394,6 +394,7 @@
       
         <h3 id="Flutter的布局方式"><a href="#Flutter的布局方式" class="headerlink" title="Flutter的布局方式"></a>Flutter的布局方式</h3><p>在<code>Flutter</code>中，所有布局都是基于<code>Widdget</code>进行的，因为对于<code>Flutter</code>而言，任何东西都是一个<code>Widdget</code>，不论是布局模型、图像、文本等等，还是我们看不到的东西比如行<code>row</code>、列<code>column</code>等等都是一个<code>Widdget</code>。</p>
 <p>如果我们想构建一个复杂的<code>Widdget</code>，可以通过多个不同的简单<code>Widdget</code>组合而成，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layui = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.use = <span class="function"><span class="keyword">function</span>(<span class="params">models, callback</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> model <span class="keyword">of</span> models) &#123;</span><br><span class="line">            <span class="built_in">window</span>[model.name] = model</span><br><span class="line">        &#125;</span><br><span class="line">        callback(...models)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -520,7 +521,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -531,7 +532,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -542,7 +543,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

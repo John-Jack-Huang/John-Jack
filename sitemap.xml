@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://huangjunjia.github.io/2019/07/12/JavaScript/Nodejs/Shell/node-shell/</loc>
+    
+    <lastmod>2019-07-12T03:54:11.570Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://huangjunjia.github.io/2019/02/27/blog/blog-set/</loc>
+    
+    <lastmod>2019-06-20T08:54:23.931Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://huangjunjia.github.io/2019/06/11/JavaScript/VUE/vee-validate-study/</loc>
+    
+    <lastmod>2019-06-17T12:39:23.151Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://huangjunjia.github.io/2019/05/13/FlutterStudy/flutter03/</loc>
+    
+    <lastmod>2019-05-21T13:23:30.285Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://huangjunjia.github.io/2019/05/17/JavaScript/canvas/CanvasGetMainColor/</loc>
     
-    <lastmod>2019-05-18T09:23:13.876Z</lastmod>
+    <lastmod>2019-05-20T03:20:34.224Z</lastmod>
     
   </url>
   
@@ -72,13 +100,6 @@
   </url>
   
   <url>
-    <loc>http://huangjunjia.github.io/2019/05/13/FlutterStudy/flutter03/</loc>
-    
-    <lastmod>2019-05-13T12:09:04.013Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://huangjunjia.github.io/2019/05/06/FlutterStudy/flutter02/</loc>
     
     <lastmod>2019-05-06T13:07:31.297Z</lastmod>
@@ -93,7 +114,7 @@
   </url>
   
   <url>
-    <loc>http://huangjunjia.github.io/2019/03/25/NeteseCloudMusic/MiniApp/day1/</loc>
+    <loc>http://huangjunjia.github.io/2019/03/25/Electron/NeteseCloudMusic/MiniApp/day1/</loc>
     
     <lastmod>2019-04-09T02:34:35.492Z</lastmod>
     
@@ -121,16 +142,9 @@
   </url>
   
   <url>
-    <loc>http://huangjunjia.github.io/2019/02/26/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/</loc>
+    <loc>http://huangjunjia.github.io/2019/02/26/Electron/NeteseCloudMusic/FullApp/NeteseCloudMusicDiary/</loc>
     
     <lastmod>2019-02-28T02:50:37.783Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://huangjunjia.github.io/2019/02/27/blog/blog-set/</loc>
-    
-    <lastmod>2019-02-27T09:51:10.903Z</lastmod>
     
   </url>
   
